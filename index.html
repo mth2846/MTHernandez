@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mechanical engineering portfolio of Mario Hernandez — UT Austin. Rocketry control systems, CFD and FEA, additive manufacturing research, and UAV/marine platform design.">
+<meta property="og:title" content="Mario Hernandez — Mechanical Engineering Portfolio">
+<meta property="og:description" content="Rocketry control systems, CFD and FEA, additive manufacturing research, and UAV/marine platform design.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+
+<title>Mario Hernandez — Mechanical Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#051423;
+    --blue:#0B2545;
+    --blue-mid:#123a6b;
+    --line:#3d6ea5;
+    --line-soft:rgba(61,110,165,0.35);
+    --paper:#F4F1E8;
+    --paper-dim:#e9e4d4;
+    --amber:#E8912D;
+    --amber-soft:#f3c98a;
+    --steel:#8fa3bd;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--blue);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--amber);color:var(--ink);}
+
+  /* blueprint grid background */
+  .grid-bg{
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:40px 40px;
+  }
+  .grid-bg-fine{
+    background-image:
+      linear-gradient(rgba(61,110,165,0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(61,110,165,0.15) 1px, transparent 1px);
+    background-size:8px 8px;
+  }
+
+  a{color:inherit;}
+
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:22px;height:1px;
+    background:var(--amber);
+    display:inline-block;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;
+    z-index:100;
+    background:rgba(5,20,35,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-soft);
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 5vw;
+  }
+  .nav-mark{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:13px;letter-spacing:0.05em;color:var(--paper);}
+  .nav-mark span{color:var(--amber);}
+  .nav-links{display:flex;gap:28px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;}
+  .nav-links a{text-decoration:none;color:var(--steel);transition:color .2s;position:relative;}
+  .nav-links a:hover, .nav-links a:focus-visible{color:var(--amber);outline:none;}
+  @media(max-width:720px){.nav-links{display:none;}}
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:120px 6vw 80px;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .hero-inner{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:2;}
+  .drawing-number{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;color:var(--steel);letter-spacing:0.1em;
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-family:'Inter',sans-serif;
+    font-weight:800;
+    font-size:clamp(42px,8vw,104px);
+    line-height:0.98;
+    letter-spacing:-0.02em;
+    color:var(--paper);
+    text-transform:uppercase;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:transparent;
+    -webkit-text-stroke:1.5px var(--amber);
+  }
+  .hero-sub{
+    margin-top:24px;
+    max-width:620px;
+    font-size:18px;
+    color:var(--steel);
+    font-weight:400;
+  }
+  .hero-sub strong{color:var(--paper);font-weight:600;}
+  .hero-meta{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid var(--line-soft);
+    border-left:1px solid var(--line-soft);
+  }
+  .hero-meta div{
+    border-right:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+    padding:16px 18px;
+  }
+  .hero-meta .label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+  .hero-meta .value{font-size:14px;color:var(--paper);font-weight:500;}
+  @media(max-width:720px){.hero-meta{grid-template-columns:repeat(2,1fr);}}
+
+  /* rocket schematic */
+  .schematic{
+    position:absolute;
+    right:4vw;top:50%;
+    transform:translateY(-50%);
+    width:min(30vw,340px);
+    opacity:0.9;
+    z-index:1;
+  }
+  @media(max-width:980px){.schematic{display:none;}}
+
+  /* ---------- SECTION WRAPPER ---------- */
+  section{padding:110px 6vw;position:relative;border-bottom:1px solid var(--line-soft);}
+  .section-inner{max-width:1200px;margin:0 auto;}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:60px;flex-wrap:wrap;gap:20px;}
+  .section-title{
+    font-size:clamp(28px,4vw,46px);
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin-top:8px;
+  }
+  .sheet-index{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--steel);}
+
+  /* ---------- TITLE BLOCK component (signature element) ---------- */
+  .titleblock{
+    border:1px solid var(--line-soft);
+    background:rgba(255,255,255,0.02);
+    transition:border-color .25s, background .25s;
+  }
+  .titleblock:hover{border-color:var(--amber);background:rgba(232,145,45,0.04);}
+  .tb-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    border-bottom:1px solid var(--line-soft);
+  }
+  .tb-row div{
+    padding:9px 14px;
+    border-right:1px solid var(--line-soft);
+  }
+  .tb-row div:last-child{border-right:none;}
+  .tb-label{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:3px;}
+  .tb-value{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--paper);}
+  .tb-body{padding:24px 24px 28px;}
+  .tb-body h3{font-size:21px;font-weight:700;color:var(--paper);margin-bottom:4px;}
+  .tb-body .role{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--steel);margin-bottom:16px;}
+  .tb-body ul{padding-left:18px;color:#cdd8e6;font-size:14.5px;}
+  .tb-body ul li{margin-bottom:8px;}
+  .tb-body ul li::marker{color:var(--amber);}
+  @media(max-width:640px){.tb-row{grid-template-columns:1fr 1fr;}}
+
+  /* ---------- EXPERIENCE list ---------- */
+  .exp-grid{display:grid;gap:28px;}
+
+  /* ---------- PROJECTS grid ---------- */
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:900px){.proj-grid{grid-template-columns:1fr;}}
+  .stat-row{display:flex;gap:22px;margin-top:14px;flex-wrap:wrap;}
+  .stat{font-family:'JetBrains Mono',monospace;}
+  .stat .num{color:var(--amber);font-size:18px;font-weight:700;display:block;}
+  .stat .lbl{color:var(--steel);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;}
+
+  .research-fig{margin-top:22px;border:1px solid var(--line-soft);}
+  .research-fig img{display:block;width:100%;height:auto;background:rgba(61,110,165,0.12);min-height:40px;}
+  .fig-caption{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;color:var(--steel);
+    padding:10px 14px;
+    border-top:1px solid var(--line-soft);
+    background:rgba(255,255,255,0.02);
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-card{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    border:1px solid var(--line-soft);
+    background:rgba(255,255,255,0.02);
+  }
+  @media(max-width:720px){.edu-card{grid-template-columns:1fr;}}
+  .edu-stamp{
+    border-right:1px solid var(--line-soft);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:30px 20px;
+    text-align:center;
+  }
+  @media(max-width:720px){.edu-stamp{border-right:none;border-bottom:1px solid var(--line-soft);}}
+  .edu-stamp .gpa{font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:700;color:var(--amber);}
+  .edu-stamp .gpa-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--steel);letter-spacing:0.1em;margin-top:4px;}
+  .edu-body{padding:28px 30px;}
+  .edu-body h3{font-size:22px;font-weight:700;}
+  .edu-body .deg{color:var(--amber-soft);font-size:14px;margin-top:4px;font-family:'JetBrains Mono',monospace;}
+  .coursework{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;}
+  .pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--paper);
+    border:1px solid var(--line-soft);
+    padding:5px 10px;
+    letter-spacing:0.02em;
+  }
+
+  /* ---------- RECOMMENDATION ---------- */
+  .quote-block{
+    max-width:820px;
+    border-left:2px solid var(--amber);
+    padding:6px 0 6px 32px;
+  }
+  .quote-block p{font-size:22px;line-height:1.5;color:var(--paper);font-weight:500;}
+  .quote-attr{margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--steel);}
+  .quote-attr strong{color:var(--amber);}
+
+  /* ---------- SKILLS / CERTS ---------- */
+  .skills-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:1px solid var(--line-soft);border-left:1px solid var(--line-soft);}
+  @media(max-width:900px){.skills-wrap{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.skills-wrap{grid-template-columns:1fr;}}
+  .skill-col{border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:26px 26px;}
+  .skill-col h4{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;}
+  .skill-col div.item{font-size:14px;color:var(--paper);padding:7px 0;border-bottom:1px dashed rgba(255,255,255,0.08);}
+  .skill-col div.item:last-child{border-bottom:none;}
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{padding:90px 6vw 60px;}
+  .footer-inner{max-width:1200px;margin:0 auto;}
+  .footer-title{
+    font-size:clamp(34px,6vw,72px);
+    font-weight:800;
+    text-transform:uppercase;
+    line-height:1;
+    letter-spacing:-0.02em;
+  }
+  .footer-title span{color:transparent;-webkit-text-stroke:1.5px var(--amber);}
+  .contact-row{margin-top:40px;display:flex;gap:40px;flex-wrap:wrap;font-family:'JetBrains Mono',monospace;font-size:14px;}
+  .contact-row a{text-decoration:none;border-bottom:1px solid var(--line-soft);padding-bottom:2px;transition:border-color .2s,color .2s;}
+  .contact-row a:hover{color:var(--amber);border-color:var(--amber);}
+  .foot-note{margin-top:70px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--steel);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line-soft);padding-top:20px;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+
+  .fade-in{
+    opacity:0;
+    transform:translateY(16px);
+    animation:fadeIn .7s ease forwards;
+  }
+  @keyframes fadeIn{to{opacity:1;transform:translateY(0);}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">M.T.HERNANDEZ<span>_JR</span></div>
+  <div class="nav-links">
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#recommendation">Reference</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero grid-bg">
+  <div class="hero-inner">
+    <div class="drawing-number">SHEET 01 / 06 — PORTFOLIO REV.D — DATE 2026.09.03</div>
+    <h1 class="fade-in">Mario<br><em>Hernandez</em> Jr.</h1>
+    <p class="hero-sub fade-in">Mechanical engineering student at <strong>UT Austin</strong> building flight hardware, actuation systems, and manufacturing drawings for real vehicles — on the ground and off it.</p>
+    <div class="hero-meta fade-in">
+      <div><div class="label">Based</div><div class="value">San Benito, TX</div></div>
+      <div><div class="label">Program</div><div class="value">B.S. Mech. Eng. · Business Minor</div></div>
+      <div><div class="label">Graduating</div><div class="value">May 2028</div></div>
+      <div><div class="label">Focus</div><div class="value">Aerospace structures &amp; actuation</div></div>
+    </div>
+  </div>
+  <svg class="schematic" viewBox="0 0 300 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="150" y1="0" x2="150" y2="700" stroke="#3d6ea5" stroke-width="0.5" stroke-dasharray="4 6" opacity="0.5"/>
+    <path d="M150 10 L110 130 L110 480 L130 560 L150 600 L170 560 L190 480 L190 130 Z" stroke="#E8912D" stroke-width="1.6"/>
+    <path d="M110 300 L60 420 L110 420 Z" stroke="#8fa3bd" stroke-width="1.2"/>
+    <path d="M190 300 L240 420 L190 420 Z" stroke="#8fa3bd" stroke-width="1.2"/>
+    <line x1="110" y1="200" x2="190" y2="200" stroke="#3d6ea5" stroke-width="1"/>
+    <line x1="110" y1="380" x2="190" y2="380" stroke="#3d6ea5" stroke-width="1"/>
+    <circle cx="150" cy="90" r="4" fill="#E8912D"/>
+    <line x1="150" y1="90" x2="230" y2="60" stroke="#8fa3bd" stroke-width="0.6"/>
+    <text x="234" y="58" fill="#8fa3bd" font-family="JetBrains Mono" font-size="9">NOSE CONE</text>
+    <line x1="190" y1="200" x2="255" y2="180" stroke="#8fa3bd" stroke-width="0.6"/>
+    <text x="200" y="176" fill="#8fa3bd" font-family="JetBrains Mono" font-size="9">AIRBRAKE BAY</text>
+    <line x1="190" y1="380" x2="255" y2="400" stroke="#8fa3bd" stroke-width="0.6"/>
+    <text x="200" y="404" fill="#8fa3bd" font-family="JetBrains Mono" font-size="9">FIN TAB ACTUATOR</text>
+    <line x1="60" y1="420" x2="20" y2="450" stroke="#8fa3bd" stroke-width="0.6"/>
+    <text x="-40" y="454" fill="#8fa3bd" font-family="JetBrains Mono" font-size="9">FIN</text>
+  </svg>
+</header>
+
+<section id="education" class="grid-bg-fine">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">01 — Foundation</div>
+        <div class="section-title">Education</div>
+      </div>
+      <div class="sheet-index">SCALE — N.T.S.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-stamp">
+        <div class="gpa">3.30</div>
+        <div class="gpa-label">GPA / 4.00</div>
+      </div>
+      <div class="edu-body">
+        <h3>University of Texas at Austin</h3>
+        <div class="deg">B.S. Mechanical Engineering — Minor in Business · Expected May 2028</div>
+        <div class="coursework">
+          <span class="pill">Mechatronics</span>
+          <span class="pill">Mechatronics Laboratory</span>
+          <span class="pill">Fluid Mechanics</span>
+          <span class="pill">Robot Mechanism Design</span>
+          <span class="pill">Materials Engineering</span>
+          <span class="pill">Materials Engineering Laboratory</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">02 — Field Notes</div>
+        <div class="section-title">Experience</div>
+      </div>
+      <div class="sheet-index">11 ENTRIES</div>
+    </div>
+    <div class="exp-grid">
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Guinn Partners · Ascendant AI</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2026 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Engineering Intern — WaveDrone Platform</h3>
+          <div class="role">Guinn Partners (an Ascendant AI company) · Autonomous Maritime Vessel Program</div>
+          <ul>
+            <li>Contributes to mechanical design work on an autonomous maritime vessel platform.</li>
+            <li>Supports prototyping and testing efforts for the system.</li>
+            <li>Produces manufacturing drawings for platform components.</li>
+          </ul>
+          <p style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:13px;color:var(--steel);line-height:1.6;">Guinn Partners operates as part of <strong style="color:var(--paper);">Ascendant AI</strong>, an Austin-based drone engineering, manufacturing, and NDAA-focused product platform.</p>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Guinn Partners · Ascendant AI</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2026</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Engineering Intern — UAV Aircraft Project, DZYNE Technologies</h3>
+          <div class="role">Guinn Partners (an Ascendant AI company) · DfM &amp; LRIP Support Program</div>
+          <ul>
+            <li>Participated directly in the buildout and prototyping of complex assembly fixturing for an unmanned aerial vehicle.</li>
+            <li>Laid out intricate flex-cable paths to keep system integration clean and reliable.</li>
+            <li>Generated precise manufacturing drawings for individual components to streamline production.</li>
+          </ul>
+          <p style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:13px;color:var(--steel);line-height:1.6;">Part of Guinn Partners' design-for-manufacturing and low-rate-initial-production support engagement with <strong style="color:var(--paper);">DZYNE Technologies</strong> — the aircraft, production, and outcome are DZYNE's; published with DZYNE's approval via Ascendant AI.</p>
+        </div>
+      </div>
+
+      <div class="titleblock" style="grid-column:1/-1;">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Guinn Partners</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2026 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Engineering — IMPRESS Mars Penetrator Program</h3>
+          <div class="role">Guinn Partners · NASA TechLeap Prize, Space Technology Payload Challenge (2026 Winner)</div>
+          <ul>
+            <li>Contributed to the drone-based release mechanism used to free-fall test penetrator aerodynamic stability, and assembled the penetrator test articles ahead of each drop.</li>
+            <li>Upscaled the dropper from a single-penetrator to a six-penetrator payload configuration, supporting IMPRESS's swarm-deployment mission architecture.</li>
+            <li>Lengthened the penetrators' UHF beacon antennas and reinforced coax-cable retention so telemetry hardware survives ground impact intact.</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat"><span class="num">6×</span><span class="lbl">Penetrator Dropper</span></div>
+            <div class="stat"><span class="num">~1,300–1,600 ft</span><span class="lbl">Test Drop Altitude</span></div>
+          </div>
+          <p style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:13px;color:var(--steel);line-height:1.6;">IMPRESS — <strong style="color:var(--paper);">Iterative Mars Penetrator for Subsurface Science</strong> — is Guinn Partners' entry addressing NASA's "Navigation Sensors for Precision Landing" shortfall, and a 2026 winner of NASA's TechLeap Prize Space Technology Payload Challenge. The technology supports low-cost, swarm-deployable penetrator networks for Mars subsurface science and astrobiology, and is described in a peer-reviewed astrobiology paper co-authored by Guinn Partners' Head of Engineering, Mitchell Richburg.</p>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Guinn Partners · Ascendant AI</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2026 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Engineering Intern — MoonTower DAQ Qualification</h3>
+          <div class="role">Guinn Partners (an Ascendant AI company) · MoonTower Fleet Intelligence</div>
+          <ul>
+            <li>Building a water-flow test stand to qualify a custom DAQ board against real sensor and actuation signals — pressure transducers, thermocouples, strain gauges, a turbine flow meter, and solenoid/pneumatic valve control.</li>
+            <li>Implementing hardware-level safety interlocks (key-switch arming, E-stop, redundant overpressure protection) that function independently of the DAQ software.</li>
+            <li>Cross-validating sensor channels against each other — redundant pressure transducers, a dual-thermocouple pair, and a hoop/axial strain-gauge pair — to characterize DAQ accuracy before deployment.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Guinn Partners · Ascendant AI</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2026 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Engineering — Modular FPV UAS</h3>
+          <div class="role">Guinn Partners (an Ascendant AI company) · for 526 Solutions</div>
+          <ul>
+            <li>Redesigns third-party FPV frame geometry for manufacturability, then produces frames from carbon-fiber sheet stock on CNC equipment.</li>
+            <li>Designs and 3D-prints payload-mount hardware for the platform's training-effects payload suite (flashbang and inert training-grenade props), used in simulated-adversary red-cell training exercises.</li>
+            <li>Took in incoming CAD and print files for a multi-material frame/component production run, then split the remaining production work with a colleague to manage the workload.</li>
+          </ul>
+          <p style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft);font-size:13px;color:var(--steel);line-height:1.6;">Ascendant AI is developing the Modular FPV UAS — requirement, design, and build plan — for <strong style="color:var(--paper);">526 Solutions</strong>, a U.S. Special Operations-focused training and equipment provider. Program status: in development.</p>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Guinn Partners</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2026 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Engineering — Okrabot</h3>
+          <div class="role">Guinn Partners · Automated Okra-Harvesting Robot</div>
+          <ul>
+            <li>Assembled the chassis frame that the robotic picking arm traverses along while harvesting okra.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Guinn Partners</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2026 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Engineering — Endotracheal Tube</h3>
+          <div class="role">Guinn Partners · Client Engagement — Concept to Final Design</div>
+          <ul>
+            <li>Contributes to mechanical design work, helping take the client's initial concept toward a finalized design.</li>
+            <li>Supports prototyping and testing by resin-printing different design variations and evaluating how different resins hold their elasticity.</li>
+            <li>Produces manufacturing drawings for components.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">NASA HUNCH</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Houston, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2023 – 2024</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Intern — 3D-Printed Medical Devices (Biomedical Project)</h3>
+          <div class="role">NASA HUNCH</div>
+          <ul>
+            <li>Studied how to sanitize 3D-printed medical instruments after use in flight-relevant conditions.</li>
+            <li>Developed a method to recycle printed instruments into new ones, cutting waste and material carried to orbit.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">NASA HUNCH</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Houston, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2022 – 2023</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Intern — Lunar Scooter Wheels (Prototype Project)</h3>
+          <div class="role">NASA HUNCH</div>
+          <ul>
+            <li>Developed front and rear wheels for an electric lunar scooter, tuned for astronaut travel speeds near 1 m/s — far faster than typical rover wheels.</li>
+            <li>Designed tread geometry suited to higher-speed lunar surface travel.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">UT Austin ECE</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Austin, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2024 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Undergraduate Research Assistant</h3>
+          <div class="role">Additive Manufacturing Research — under Prof. Michael Becker</div>
+          <ul>
+            <li>Runs atomic strain analysis on Al₂O₃ particles using supercomputer simulation data.</li>
+            <li>Visualizes strain and simulation results in MATLAB for the research group.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">Drawn by</div><div class="tb-value">M. Hernandez</div></div>
+          <div><div class="tb-label">Org</div><div class="tb-value">Hernandez Farms</div></div>
+          <div><div class="tb-label">Location</div><div class="tb-value">Brownsville, TX</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2018 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Foreman</h3>
+          <div class="role">Hernandez Farms</div>
+          <ul>
+            <li>Maintains facilities, ranch records, and documentation; handles invoices for bills, sales, and supplies.</li>
+            <li>Inspects and repairs equipment for livestock and crop management, and monitors herd health.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="grid-bg-fine">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">03 — Assemblies</div>
+        <div class="section-title">Projects</div>
+      </div>
+      <div class="sheet-index">5 ASSEMBLIES ON FILE · REV. D</div>
+    </div>
+    <div class="proj-grid">
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">System</div><div class="tb-value">Airbrakes</div></div>
+          <div><div class="tb-label">Team</div><div class="tb-value">LRA</div></div>
+          <div><div class="tb-label">Target</div><div class="tb-value">10,000 ft</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2025 – Now</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Active Airbrakes Subsystem</h3>
+          <div class="role">IREC Competition Rocket</div>
+          <ul>
+            <li>Designed an active airbrake system to shed roughly 2,500 ft of apogee and hold a 10,000 ft target altitude.</li>
+            <li>Selected a cam-slot actuation mechanism through trade studies favoring simplicity, low mass, and flight heritage.</li>
+            <li>Ran ANSYS Fluent CFD and Static Structural FEA to size aerodynamic loads and structural margins.</li>
+            <li>Ran transient CFD to capture oscillating vortex shedding on the airbrake bluff plate near Mach 1, extracting drag coefficient and drag force time histories across Mach 0.6–0.9 to validate the design.</li>
+            <li>Supported prototyping and test planning, refining tolerances, materials, and system integration.</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat"><span class="num">SF &gt; 2</span><span class="lbl">Structural Margin</span></div>
+            <div class="stat"><span class="num">2,500 ft</span><span class="lbl">Apogee Reduction</span></div>
+          </div>
+          <div class="research-fig">
+            <img src="assets/fig-01.png" loading="eager" alt="Time history plots of drag coefficient at Mach 0.6, 0.7, 0.8, and 0.9 showing oscillating vortex shedding behavior on the airbrake bluff plate" loading="lazy">
+            <div class="fig-caption">Transient CFD — drag coefficient time history across Mach 0.6–0.9, capturing vortex-shedding oscillation on the airbrake bluff plate.</div>
+          </div>
+          <div class="research-fig">
+            <img src="assets/fig-02.png" loading="lazy" decoding="async" alt="3D-printed physical prototype of the four-petal airbrake mechanism with a center-mounted servo actuator" loading="lazy">
+            <div class="fig-caption">3D-printed prototype of the four-petal airbrake mechanism, servo-actuated from the center hub.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="titleblock">
+        <div class="tb-row">
+          <div><div class="tb-label">System</div><div class="tb-value">Fin Tabs</div></div>
+          <div><div class="tb-label">Team</div><div class="tb-value">LRA</div></div>
+          <div><div class="tb-label">Actuator</div><div class="tb-value">MKS HV6160</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2025 – Now</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Actuating Fin Tabs — Roll Control</h3>
+          <div class="role">IREC Competition Rocket — target apogee 2,000 ft, max velocity 110 m/s</div>
+          <ul>
+            <li>Given three months to design an actuating fin system compact enough for a 3" body diameter, robust enough for high-speed aerodynamic loads, and light enough to protect the altitude target.</li>
+            <li>Ran a trade study weighing a linkage-based mechanism against a tab-based design; selected the tab design for fewer failure points, lower mass, easier control integration, and better scalability.</li>
+            <li>Built and maintained the CAD model in OnShape — a 14 mm-thick fin tab with an embedded slim servo, epoxied servo horn, and a dowel rod supporting rotation on the opposite side.</li>
+            <li>Used ANSYS CFD to find worst-case loading (tab actuated to 45°, 10x normal deflection) — 5,500 Pa static pressure, 2.6 N drag force, 1.25 drag coefficient.</li>
+            <li>Fed those loads into an FEA study confirming the dowel rod would see only 5 N under load, for a factor of safety greater than 6.</li>
+            <li>Calculated 30 N·mm of servo torque from drag loading against a rated 1,000 N·mm back-drive threshold, then bench-tested the servo (measured 1.08 N·m vs. 1.82 N·m stated max) to confirm it would not back-drive in flight.</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat"><span class="num">FOS &gt; 6</span><span class="lbl">Dowel Rod Margin</span></div>
+            <div class="stat"><span class="num">2.6 N</span><span class="lbl">Drag Force</span></div>
+            <div class="stat"><span class="num">5,500 Pa</span><span class="lbl">Static Pressure</span></div>
+          </div>
+          <div class="research-fig">
+            <img src="assets/fig-03.png" loading="lazy" decoding="async" alt="CAD assembly render of the three-fin actuating tab system with embedded servo motors" loading="lazy">
+            <div class="fig-caption">OnShape assembly — three-fin actuating tab system with embedded servo motors and dowel-supported rotation.</div>
+          </div>
+          <div class="research-fig">
+            <img src="assets/fig-04.png" loading="lazy" decoding="async" alt="ANSYS CFD static pressure contour on the fin tab and FEA structural results for the dowel rod, showing total deformation and safety factor" loading="lazy">
+            <div class="fig-caption">ANSYS CFD static pressure on the tab (top) feeding an FEA structural study of the dowel rod — deformation and safety factor (bottom).</div>
+          </div>
+          <div class="research-fig">
+            <img src="assets/fig-05.png" loading="lazy" decoding="async" alt="Bench test of the servo motor using a crane scale, comparing stated max torque to measured max torque" loading="lazy">
+            <div class="fig-caption">Bench validation — measured servo torque (1.08 N·m) against the stated max (1.82 N·m), confirming margin against back-driving.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="titleblock" style="grid-column:1/-1;">
+        <div class="tb-row">
+          <div><div class="tb-label">System</div><div class="tb-value">Strain Analysis</div></div>
+          <div><div class="tb-label">Team</div><div class="tb-value">M. Hernandez, S. Pinapati</div></div>
+          <div><div class="tb-label">Tools</div><div class="tb-value">OVITO / MATLAB / LAMMPS</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2024 – Present</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Additive Manufacturing — Atomic Strain Analysis</h3>
+          <div class="role">UT Austin ECE Research, under Prof. Michael Becker</div>
+          <ul>
+            <li>Wrote code to parse and analyze large molecular-dynamics configuration files (.cfg) from LAMMPS simulations.</li>
+            <li>Generated strain density functions to characterize deformation in Al₂O₃ particles at the atomic scale.</li>
+            <li>Examined how impact velocity and crystal orientation change resulting shear-strain distributions.</li>
+            <li>Visualized simulation output in OVITO and processed results in MATLAB to identify strain concentration patterns.</li>
+          </ul>
+          <div class="research-fig">
+            <img src="assets/fig-06.png" loading="lazy" decoding="async" alt="Shear strain density visualizations across three impact simulation cases, showing strain concentration patterns in an alumina particle" loading="lazy">
+            <div class="fig-caption">Shear strain density across three simulated impact cases — the banded high-strain regions (yellow) trace deformation paths through the particle.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="titleblock" style="grid-column:1/-1;">
+        <div class="tb-row">
+          <div><div class="tb-label">System</div><div class="tb-value">Thrust Vector Control</div></div>
+          <div><div class="tb-label">Team</div><div class="tb-value">LRA Advanced Research</div></div>
+          <div><div class="tb-label">Tools</div><div class="tb-value">SolidWorks / OpenRocket / ANSYS</div></div>
+          <div><div class="tb-label">Date</div><div class="tb-value">2024 – Now</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Experimental Thrust Vector Control</h3>
+          <div class="role">Longhorn Rocketry Association — Advanced Research</div>
+          <ul>
+            <li>Works on the mechanical subteam to control an aerodynamically unstable rocket by directing engine thrust.</li>
+            <li>Designed and modeled a 2-axis gimbal TVC assembly in SolidWorks, simulated in OpenRocket for active thrust steering and in-flight attitude correction.</li>
+            <li>Ran ANSYS Static Structural FEA (equivalent von Mises stress) on the gimbal ring, iterating the design to stay within material stress limits.</li>
+            <li>Designed safety features so the rocket cannot aim toward the ground in the event of a mechanical failure.</li>
+          </ul>
+          <div class="research-fig">
+            <img src="assets/fig-07.png" loading="lazy" decoding="async" alt="ANSYS static structural FEA showing equivalent von-Mises stress contour on the gimbal ring, with a peak of about 2.43 megapascals" loading="lazy">
+            <div class="fig-caption">ANSYS FEA — equivalent von Mises stress on the gimbal ring under load, peaking around 2.43 MPa near the mount points.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="titleblock" style="grid-column:1/-1;">
+        <div class="tb-row">
+          <div><div class="tb-label">System</div><div class="tb-value">Motor Test Stand</div></div>
+          <div><div class="tb-label">Team</div><div class="tb-value">LRA</div></div>
+          <div><div class="tb-label">Tools</div><div class="tb-value">SolidWorks / KiCad</div></div>
+          <div><div class="tb-label">Thrust Class</div><div class="tb-value">H (~150 lbf)</div></div>
+        </div>
+        <div class="tb-body">
+          <h3>Rocket Motor Test Stand</h3>
+          <div class="role">Propulsion Testing</div>
+          <ul>
+            <li>Designed and assembled a steel static-fire test stand for solid rocket motors, engineered to withstand H-class thrust levels (~150 lbf).</li>
+            <li>Designed the ignition and control electronics in KiCad for safe, remote motor ignition.</li>
+          </ul>
+          <div class="stat-row">
+            <div class="stat"><span class="num">~150 lbf</span><span class="lbl">Rated Thrust</span></div>
+          </div>
+          <div class="research-fig">
+            <img src="assets/fig-08.png" loading="lazy" decoding="async" alt="SolidWorks render of the steel rocket motor static-fire test stand, front three-quarter view" loading="lazy">
+            <div class="fig-caption">SolidWorks model of the static-fire test stand — steel frame sized for H-class motor thrust.</div>
+          </div>
+          <div class="research-fig">
+            <img src="assets/fig-09.png" loading="lazy" decoding="async" alt="SolidWorks render of the steel rocket motor static-fire test stand, isometric angle" loading="lazy">
+            <div class="fig-caption">Isometric view showing the motor mount and base-plate bracing.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="recommendation">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">04 — Sign-off</div>
+        <div class="section-title">Reference</div>
+      </div>
+      <div class="sheet-index">APPROVED</div>
+    </div>
+    <div class="quote-block">
+      <p>"Mario is an all-around very capable young man who has quickly proven himself to be a vital asset to our team." He brought technical intuition and hands-on ability beyond his years, stepping into unfamiliar work with confidence rather than hesitation — and volunteering wherever he could to expand his engineering toolkit.</p>
+      <div class="quote-attr"><strong>Mitchell Richburg</strong> — Head of Engineering, Guinn Partners · June 2026</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="grid-bg-fine">
+  <div class="section-inner">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">05 — Specifications</div>
+        <div class="section-title">Skills &amp; Certifications</div>
+      </div>
+      <div class="sheet-index">TOLERANCE ± N/A</div>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-col">
+        <h4>CAD / Simulation</h4>
+        <div class="item">SolidWorks</div>
+        <div class="item">Fusion 360</div>
+        <div class="item">Onshape</div>
+        <div class="item">Revit</div>
+        <div class="item">ANSYS Fluent (CFD)</div>
+        <div class="item">ANSYS Static Structural (FEA)</div>
+        <div class="item">OpenRocket</div>
+        <div class="item">MATLAB</div>
+        <div class="item">OVITO</div>
+        <div class="item">LAMMPS</div>
+        <div class="item">KiCad</div>
+      </div>
+      <div class="skill-col">
+        <h4>Robotics Certifications</h4>
+        <div class="item">SACA C-101 Industry 4.0 Associate</div>
+        <div class="item">KAWASAKI Certified Robot Operator/Programming</div>
+        <div class="item">FANUC Certified Robot Operator/Programming</div>
+        <div class="item">KUKA Certified Robot Operator/Programming</div>
+      </div>
+      <div class="skill-col">
+        <h4>Societies &amp; Language</h4>
+        <div class="item">Terry Scholar</div>
+        <div class="item">SHPE — Member</div>
+        <div class="item">Longhorn Rocketry Association</div>
+        <div class="item">STARS Society (NASA Anchor)</div>
+        <div class="item">FITS — Co-Founder</div>
+        <div class="item">Fluent in Spanish</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" class="grid-bg">
+  <div class="footer-inner">
+    <div class="eyebrow">06 — Contact</div>
+    <div class="footer-title">Let's build<br>something <span>real.</span></div>
+    <div class="contact-row">
+      <a href="mailto:mariothdz@utexas.edu">mariothdz@utexas.edu</a>
+      <a href="tel:9562417934">(956) 241-7934</a>
+      <a href="https://www.linkedin.com/in/mario-hernandez813" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <span>San Benito, TX</span>
+    </div>
+    <div class="foot-note">
+      <span>MARIO T. HERNANDEZ JR — MECHANICAL ENGINEERING PORTFOLIO</span>
+      <span>REV. D — WORK ELIGIBLE IN U.S. · OPEN TO RELOCATION WITH SPONSORSHIP</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
