@@ -130,6 +130,7 @@ img{max-width:100%;height:auto}
 .shots{display:grid;gap:16px}
 .shots figure{margin:0;background:var(--surface);border:1px solid var(--line)}
 .shots img{width:100%;display:block;background:#fff}
+.shots figure.render img{background:radial-gradient(120% 90% at 50% 40%,var(--surface-2) 0,var(--ground) 100%);padding:18px;box-sizing:border-box;height:auto}
 .shots figcaption{padding:10px 14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
 .project.full{grid-template-columns:1fr}
 .project.full .shots{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}

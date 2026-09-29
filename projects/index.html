@@ -36,7 +36,63 @@
   <div class="wrap">
     <p class="eyebrow">03 — Assemblies</p>
     <h1 class="ph">Projects</h1>
-    <p class="lede" style="margin-top:18px">Five assemblies on file — designed, simulated, and in most cases built and tested.</p>
+    <p class="lede" style="margin-top:18px">Seven assemblies on file — designed, simulated, and in most cases built and tested.</p>
+
+    <article class="project">
+      <div>
+        <p class="org">Longhorn Rocketry Association · Vehicle design</p>
+        <h3>Rocket Version 9 — Active-Control Airframe</h3>
+        <dl class="spec">
+          <div><dt>Airframe</dt><dd>3 in diameter · ≈ 32 in long</dd></div>
+          <div><dt>Control</dt><dd>4 servo-actuated canards</dd></div>
+          <div><dt>Tools</dt><dd>Fusion 360</dd></div>
+          <div><dt>Date</dt><dd>2026</dd></div>
+        </dl>
+        <ul>
+          <li>Modeled the full vehicle assembly in Fusion 360 — ogive nose cone, body tube, motor tube with centering rings and motor retainer, bulkhead, thread-insert ring, rail buttons, and four tail fins.</li>
+          <li>Integrated four forward canards on servo-driven mounts, with the servos, servo casings, horns and canard plates modeled in place for active flight control.</li>
+          <li>Sized the airframe at 3 in diameter — the envelope the TVC flight computer below was compacted to fit on its avionics sled.</li>
+        </ul>
+        <div class="stats">
+          <div><b>3 in</b><span>Body diameter</span></div>
+          <div><b>≈ 32 in</b><span>Overall length</span></div>
+          <div><b>4</b><span>Active canards</span></div>
+        </div>
+      </div>
+      <div class="shots">
+        <figure class="render"><img src="../assets/rocket-v9.webp" loading="lazy" decoding="async" width="1528" height="508" alt="Three-quarter render of the Rocket Version 9 assembly showing the ogive nose cone, forward servo-actuated canards and four tail fins"><figcaption>Rocket Version 9 — full Fusion 360 assembly, rendered from the STEP export.</figcaption></figure>
+        <figure class="render"><img src="../assets/rocket-v9-side.webp" loading="lazy" decoding="async" width="1388" height="448" alt="Side profile of Rocket Version 9 showing canard placement relative to the tail fins"><figcaption>Side profile — forward canards and aft tail fins on the 3 in body tube.</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <p class="org">Longhorn Rocketry Association · Avionics</p>
+        <h3>TVC Flight Computer — LRA TVC V5</h3>
+        <dl class="spec">
+          <div><dt>Board</dt><dd>50 × 76 mm · 4-layer</dd></div>
+          <div><dt>Processor</dt><dd>ESP32-WROOM-32E</dd></div>
+          <div><dt>Sensors</dt><dd>BMI088 IMU · BMP388 barometer</dd></div>
+          <div><dt>Tools</dt><dd>KiCad 10</dd></div>
+        </dl>
+        <ul>
+          <li>Ported the team's flight-computer design from EasyEDA into a hierarchical KiCad project (Power, USB/Reset, Processor, Sensors and Pyro sheets), cross-checking every net against the original schematic and board files.</li>
+          <li>Reworked the outputs for active control: eight actuator headers — TVC pitch and yaw, four fins, airbrake and reaction wheel — fed from a dedicated servo battery bus kept separate from logic power, plus two pyro channels with continuity check.</li>
+          <li>Compacted the board from 65 × 80 mm to 50 × 76 mm on four layers with a solid ground plane so it mounts lengthwise in a 3 in airframe; the IMU sits at the board centre and the ESP32 antenna at the edge over a copper keep-out.</li>
+          <li>Replaced the power stage with a 2 A synchronous buck (AP63205), moved the shift registers to 74HCT595 to fix a 3.3 V-to-5 V logic-level problem on the pyro gates, and added an external arming switch.</li>
+          <li>Fully routed with zero unconnected nets and zero copper-clearance errors in KiCad DRC; design complete, ahead of fabrication.</li>
+        </ul>
+        <div class="stats">
+          <div><b>50 × 76 mm</b><span>Board size</span></div>
+          <div><b>4</b><span>Copper layers</span></div>
+          <div><b>8 + 2</b><span>Actuator + pyro channels</span></div>
+        </div>
+      </div>
+      <div class="shots">
+        <figure class="render"><img src="../assets/tvc-pcb-iso.webp" loading="lazy" decoding="async" width="1084" height="1044" alt="Angled 3D render of the LRA TVC V5 flight computer board"><figcaption>KiCad 3D render — the eight actuator headers run along the bottom edge next to the servo battery input.</figcaption></figure>
+        <figure class="render"><img src="../assets/tvc-pcb-top.webp" loading="lazy" decoding="async" width="900" height="1176" alt="Top-down render of the LRA TVC V5 board showing the ESP32 module, power stage, pyro drivers and shift registers"><figcaption>Top view — switching supply top-left, ESP32 and USB-UART top-right, pyro drivers left, shift registers and servo power along the bottom.</figcaption></figure>
+      </div>
+    </article>
 
     <article class="project">
       <div>
