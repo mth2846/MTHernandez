@@ -212,3 +212,6 @@ h1.ph{font-size:clamp(44px,6.4vw,84px)}
 .card.path{text-decoration:none;color:inherit}
 .card.path p{font-size:15.5px;color:var(--card-text);margin:0}
 .card.path .go{margin-top:auto;padding-top:18px;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:14px;color:var(--orange-lt)}
+.face{display:block;width:132px;height:132px;border-radius:50%;object-fit:cover;border:3px solid var(--orange-lt);background:var(--surface-2);margin:0 0 24px}
+.band .face{width:120px;height:120px;border-color:#fff}
+@media (max-width:900px){.hero .face{width:104px;height:104px;margin-top:8px}}
