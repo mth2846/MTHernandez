@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mario Hernandez — Projects</title>
+<meta name="description" content="Projects by Mario Hernandez — rocket airbrakes, fin-tab roll control, thrust vector control, motor test stand, atomic strain analysis.">
+<meta property="og:title" content="Mario Hernandez — Projects">
+<meta property="og:description" content="Projects by Mario Hernandez — rocket airbrakes, fin-tab roll control, thrust vector control, motor test stand, atomic strain analysis.">
+<meta property="og:type" content="website">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="mark" aria-hidden="true">MH</span><b>Mario Hernandez Jr.</b></a>
+    <div class="links">
+      <a class="lnk" href="../education/">Education</a>
+      <a class="lnk" href="../experience/">Experience</a>
+      <a class="lnk" href="../projects/" aria-current="page">Projects</a>
+      <a class="lnk" href="../reference/">Reference</a>
+      <a class="lnk" href="../skills/">Skills</a>
+      <a class="lnk" href="../contact/">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<section id="projects" class="page-top">
+  <div class="wrap">
+    <p class="eyebrow">03 — Assemblies</p>
+    <h1 class="ph">Projects</h1>
+    <p class="lede" style="margin-top:18px">Five assemblies on file — designed, simulated, and in most cases built and tested.</p>
+
+    <article class="project">
+      <div>
+        <p class="org">IREC Competition Rocket · Longhorn Rocketry Association</p>
+        <h3>Active Airbrakes Subsystem</h3>
+        <dl class="spec">
+          <div><dt>System</dt><dd>Airbrakes</dd></div>
+          <div><dt>Team</dt><dd>LRA</dd></div>
+          <div><dt>Target apogee</dt><dd>10,000 ft</dd></div>
+          <div><dt>Date</dt><dd>2025 – Now</dd></div>
+        </dl>
+        <ul>
+          <li>Designed an active airbrake system to shed roughly 2,500 ft of apogee and hold a 10,000 ft target altitude.</li>
+          <li>Selected a cam-slot actuation mechanism through trade studies favoring simplicity, low mass, and flight heritage.</li>
+          <li>Ran ANSYS Fluent CFD and Static Structural FEA to size aerodynamic loads and structural margins.</li>
+          <li>Ran transient CFD to capture oscillating vortex shedding on the airbrake bluff plate near Mach 1, extracting drag coefficient and drag force time histories across Mach 0.6–0.9 to validate the design.</li>
+          <li>Supported prototyping and test planning, refining tolerances, materials, and system integration.</li>
+        </ul>
+        <div class="stats">
+          <div><b>SF &gt; 2</b><span>Structural margin</span></div>
+          <div><b>2,500 ft</b><span>Apogee reduction</span></div>
+        </div>
+      </div>
+      <div class="shots">
+        <figure><img src="../assets/fig-01.png" loading="lazy" decoding="async" alt="Time history plots of drag coefficient at Mach 0.6, 0.7, 0.8, and 0.9 showing oscillating vortex shedding on the airbrake bluff plate"><figcaption>Transient CFD — drag coefficient time history across Mach 0.6–0.9, capturing vortex-shedding oscillation on the airbrake bluff plate.</figcaption></figure>
+        <figure><img src="../assets/fig-02.png" loading="lazy" decoding="async" alt="Physical prototype of the four-petal airbrake mechanism with a center-mounted servo actuator"><figcaption>Prototype of the four-petal airbrake mechanism, servo-actuated from the center hub.</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <p class="org">IREC Competition Rocket — target apogee 2,000 ft, max velocity 110 m/s</p>
+        <h3>Actuating Fin Tabs — Roll Control</h3>
+        <dl class="spec">
+          <div><dt>System</dt><dd>Fin Tabs</dd></div>
+          <div><dt>Team</dt><dd>LRA</dd></div>
+          <div><dt>Actuator</dt><dd>MKS HV6160</dd></div>
+          <div><dt>Date</dt><dd>2025 – Now</dd></div>
+        </dl>
+        <ul>
+          <li>Given three months to design an actuating fin system compact enough for a 3" body diameter, robust enough for high-speed aerodynamic loads, and light enough to protect the altitude target.</li>
+          <li>Ran a trade study weighing a linkage-based mechanism against a tab-based design; selected the tab design for fewer failure points, lower mass, easier control integration, and better scalability.</li>
+          <li>Built and maintained the CAD model in OnShape — a 14 mm-thick fin tab with an embedded slim servo, epoxied servo horn, and a dowel rod supporting rotation on the opposite side.</li>
+          <li>Used ANSYS CFD to find worst-case loading (tab actuated to 45°, 10x normal deflection) — 5,500 Pa static pressure, 2.6 N drag force, 1.25 drag coefficient.</li>
+          <li>Fed those loads into an FEA study confirming the dowel rod would see only 5 N under load, for a factor of safety greater than 6.</li>
+          <li>Calculated 30 N·mm of servo torque from drag loading against a rated 1,000 N·mm back-drive threshold, then bench-tested the servo (measured 1.08 N·m vs. 1.82 N·m stated max) to confirm it would not back-drive in flight.</li>
+        </ul>
+        <div class="stats">
+          <div><b>FOS &gt; 6</b><span>Dowel rod margin</span></div>
+          <div><b>2.6 N</b><span>Drag force</span></div>
+          <div><b>5,500 Pa</b><span>Static pressure</span></div>
+        </div>
+      </div>
+      <div class="shots">
+        <figure><img src="../assets/fig-03.png" loading="lazy" decoding="async" alt="CAD assembly render of the three-fin actuating tab system with embedded servo motors"><figcaption>OnShape assembly — three-fin actuating tab system with embedded servo motors and dowel-supported rotation.</figcaption></figure>
+        <figure><img src="../assets/fig-04.png" loading="lazy" decoding="async" alt="ANSYS CFD static pressure contour on the fin tab and FEA structural results for the dowel rod"><figcaption>ANSYS CFD static pressure on the tab (top) feeding an FEA structural study of the dowel rod — deformation and safety factor (bottom).</figcaption></figure>
+        <figure><img src="../assets/fig-05.png" loading="lazy" decoding="async" alt="Bench test of the servo motor using a crane scale, comparing stated max torque to measured max torque"><figcaption>Bench validation — measured servo torque (1.08 N·m) against the stated max (1.82 N·m), confirming margin against back-driving.</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <p class="org">Longhorn Rocketry Association — Advanced Research</p>
+        <h3>Experimental Thrust Vector Control</h3>
+        <dl class="spec">
+          <div><dt>System</dt><dd>Thrust Vector Control</dd></div>
+          <div><dt>Team</dt><dd>LRA Advanced Research</dd></div>
+          <div><dt>Tools</dt><dd>SolidWorks / OpenRocket / ANSYS</dd></div>
+          <div><dt>Date</dt><dd>2024 – Now</dd></div>
+        </dl>
+        <ul>
+          <li>Works on the mechanical subteam to control an aerodynamically unstable rocket by directing engine thrust.</li>
+          <li>Designed and modeled a 2-axis gimbal TVC assembly in SolidWorks, simulated in OpenRocket for active thrust steering and in-flight attitude correction.</li>
+          <li>Ran ANSYS Static Structural FEA (equivalent von Mises stress) on the gimbal ring, iterating the design to stay within material stress limits.</li>
+          <li>Designed safety features so the rocket cannot aim toward the ground in the event of a mechanical failure.</li>
+        </ul>
+      </div>
+      <div class="shots">
+        <figure><img src="../assets/fig-07.png" loading="lazy" decoding="async" alt="ANSYS static structural FEA showing equivalent von Mises stress on the gimbal ring, peaking around 2.43 MPa"><figcaption>ANSYS FEA — equivalent von Mises stress on the gimbal ring under load, peaking around 2.43 MPa near the mount points.</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <p class="org">Propulsion Testing · LRA</p>
+        <h3>Rocket Motor Test Stand</h3>
+        <dl class="spec">
+          <div><dt>System</dt><dd>Motor Test Stand</dd></div>
+          <div><dt>Team</dt><dd>LRA</dd></div>
+          <div><dt>Tools</dt><dd>SolidWorks / KiCad</dd></div>
+          <div><dt>Thrust class</dt><dd>H (~150 lbf)</dd></div>
+        </dl>
+        <ul>
+          <li>Designed and assembled a steel static-fire test stand for solid rocket motors, engineered to withstand H-class thrust levels (~150 lbf).</li>
+          <li>Designed the ignition and control electronics in KiCad for safe, remote motor ignition.</li>
+        </ul>
+        <div class="stats">
+          <div><b>~150 lbf</b><span>Rated thrust</span></div>
+        </div>
+      </div>
+      <div class="shots">
+        <figure><img src="../assets/fig-08.png" loading="lazy" decoding="async" alt="SolidWorks render of the steel rocket motor static-fire test stand, front three-quarter view"><figcaption>SolidWorks model of the static-fire test stand — steel frame sized for H-class motor thrust.</figcaption></figure>
+        <figure><img src="../assets/fig-09.png" loading="lazy" decoding="async" alt="SolidWorks render of the steel rocket motor static-fire test stand, isometric angle"><figcaption>Isometric view showing the motor mount and base-plate bracing.</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="project full">
+      <div>
+        <p class="org">UT Austin ECE Research, under Prof. Michael Becker</p>
+        <h3>Additive Manufacturing — Atomic Strain Analysis</h3>
+        <dl class="spec">
+          <div><dt>System</dt><dd>Strain Analysis</dd></div>
+          <div><dt>Team</dt><dd>M. Hernandez, S. Pinapati</dd></div>
+          <div><dt>Tools</dt><dd>OVITO / MATLAB / LAMMPS</dd></div>
+          <div><dt>Date</dt><dd>2024 – Present</dd></div>
+        </dl>
+        <ul>
+          <li>Wrote code to parse and analyze large molecular-dynamics configuration files (.cfg) from LAMMPS simulations.</li>
+          <li>Generated strain density functions to characterize deformation in Al₂O₃ particles at the atomic scale.</li>
+          <li>Examined how impact velocity and crystal orientation change resulting shear-strain distributions.</li>
+          <li>Visualized simulation output in OVITO and processed results in MATLAB to identify strain concentration patterns.</li>
+        </ul>
+      </div>
+      <div class="shots">
+        <figure><img src="../assets/fig-06.png" loading="lazy" decoding="async" alt="Shear strain density visualizations across three impact simulation cases in an alumina particle"><figcaption>Shear strain density across three simulated impact cases — the banded high-strain regions (yellow) trace deformation paths through the particle.</figcaption></figure>
+      </div>
+    </article>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p style="margin:0 0 4px"><strong>Mario T. Hernandez Jr.</strong></p>
+      <p class="muted" style="margin:0">Mechanical Engineering · The University of Texas at Austin</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="../experience/">Experience</a>
+      <a href="../projects/">Projects</a>
+      <a href="../skills/">Skills</a>
+      <a href="../contact/">Contact</a>
+    </nav>
+    <div>
+      <p style="margin:0 0 6px"><a href="mailto:mariothdz@utexas.edu">mariothdz@utexas.edu</a></p>
+      <p style="margin:0 0 6px"><a href="https://www.linkedin.com/in/mario-hernandez813" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="legal">Work described under Guinn Partners / Ascendant AI programs belongs to those organisations and their clients and is published with their approval. Work eligible in the U.S. · Open to relocation with sponsorship.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -6,241 +6,32 @@
 <title>Mario Hernandez — Mechanical Engineering Portfolio</title>
 <meta name="description" content="Mechanical engineering portfolio of Mario Hernandez — UT Austin. Rocketry control systems, CFD and FEA, additive manufacturing research, and UAV/marine platform design.">
 <meta property="og:title" content="Mario Hernandez — Mechanical Engineering Portfolio">
-<meta property="og:description" content="Rocketry control systems, CFD and FEA, additive manufacturing research, and UAV/marine platform design.">
+<meta property="og:description" content="Mechanical engineering portfolio of Mario Hernandez — UT Austin. Rocketry control systems, CFD and FEA, additive manufacturing research, and UAV/marine platform design.">
 <meta property="og:type" content="website">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap">
-<style>
-:root{
-  --ground:#0C1727;--surface:#13223A;--surface-2:#1A2C48;--line:#263A5C;
-  --orange:#BF5700;--orange-lt:#F2A65A;--cream:#F4F0E8;--muted:#8DA0BC;
-  --body-text:#C6D2E4;--card-text:#BCC9DC;
-  --display:"Barlow Condensed","Arial Narrow",Helvetica,sans-serif;
-  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
-  --wrap:1180px;color-scheme:dark;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--ground);color:var(--cream);font-family:var(--body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
-main{flex:1 1}
-::selection{background:var(--orange);color:var(--cream)}
-.skip{position:absolute;left:12px;top:-60px;z-index:100;background:var(--orange);color:var(--cream);padding:10px 16px;font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.1em;text-decoration:none}
-.skip:focus{top:12px}
-.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:20px}
-section{padding-block:clamp(60px,8vw,110px);position:relative}
-h1,h2,h3{font-family:var(--display);text-transform:uppercase;margin:0;text-wrap:balance;line-height:.98}
-h1,h2{font-weight:800}
-h2{font-size:clamp(34px,5vw,60px)}
-h3{font-weight:700;font-size:22px;letter-spacing:.01em}
-p{margin:0 0 1em}
-a{color:var(--orange-lt)}
-img{max-width:100%;height:auto}
-.eyebrow{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.22em;font-size:13px;color:var(--orange-lt);margin:0 0 14px}
-.lede{font-size:clamp(17px,1.9vw,20px);color:var(--body-text);max-width:60ch}
-.lede strong{color:var(--cream);font-weight:600}
-.muted{color:var(--muted)}
-.alt{background:var(--surface-2)}
-:focus-visible{outline:2px solid var(--orange-lt);outline-offset:3px}
-.stripe{height:14px;background:linear-gradient(135deg,transparent 0 40%,var(--orange) 40% 55%,transparent 55% 62%,var(--orange-lt) 62% 70%,transparent 70%) 0 0/120px 14px repeat-x}
-
-/* nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(12,23,39,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;gap:22px;min-height:76px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);margin-right:auto}
-.brand .mark{width:44px;height:44px;display:grid;place-items:center;background:var(--orange);font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.02em;color:var(--cream)}
-.brand b{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:18px}
-.nav .links{display:flex;gap:22px}
-.nav .lnk{white-space:nowrap;font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:14px;font-weight:700;color:var(--muted);text-decoration:none}
-.nav .lnk:hover{color:var(--cream)}
-.nav .lnk.on{color:var(--cream);box-shadow:inset 0 -2px var(--orange-lt)}
-
-/* buttons */
-.btn{display:inline-block;font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-weight:800;font-size:15px;text-decoration:none;padding:14px 28px;border:2px solid var(--orange);color:var(--cream);background:var(--orange);transition:background .16s,color .16s}
-.btn:hover{background:#A64A00;border-color:#A64A00}
-.btn.ghost{background:transparent;color:var(--orange-lt)}
-.btn.ghost:hover{background:var(--orange);color:var(--cream)}
-.btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
-
-/* hero */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);background:#121211;min-height:min(88vh,860px);display:flex;align-items:center;padding-block:clamp(56px,7vw,96px)}
-.hero-art{position:absolute;top:0;bottom:0;right:0;width:min(58%,760px);z-index:0}
-.hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
-.hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(18,18,17,1) 0,rgba(18,18,17,1) 42%,rgba(18,18,17,.55) 58%,rgba(18,18,17,.1) 78%,rgba(18,18,17,0)),linear-gradient(180deg,rgba(18,18,17,.35),rgba(18,18,17,0) 30%,rgba(18,18,17,0) 70%,rgba(18,18,17,.6))}
-.hero .wrap{position:relative;z-index:2;width:100%}
-.hero-copy{max-width:680px}
-.hero h1{font-size:clamp(50px,7.4vw,100px)}
-.hero h1 em{font-style:normal;color:var(--orange-lt)}
-.hero .lede{margin-top:22px}
-.hero-credit{position:absolute;right:16px;bottom:10px;z-index:2;margin:0;font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:rgba(244,240,232,.5)}
-
-/* countdown strip */
-.clock{background:var(--surface);border-block:1px solid var(--line)}
-.clock .wrap{display:grid;grid-template-columns:1.2fr repeat(3,minmax(0,.6fr));gap:1px;background:var(--line);padding-inline:0;border-inline:1px solid var(--line)}
-.clock .cell{background:var(--surface);padding:24px 22px}
-.clock .lbl{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--muted)}
-.clock .val{font-family:var(--display);font-weight:800;font-size:54px;line-height:1;color:var(--orange-lt);font-variant-numeric:tabular-nums}
-.clock .val small{font-size:16px;color:var(--muted);letter-spacing:.1em;margin-left:6px}
-.clock .hms{display:inline-block;margin-left:14px;font-size:30px;color:var(--cream);letter-spacing:.02em}
-.clock .what{font-size:15.5px;color:var(--body-text);margin-top:6px}
-.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:#FF4D3D;margin-right:9px;vertical-align:1px;box-shadow:0 0 0 0 rgba(255,77,61,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,77,61,0)}to{box-shadow:0 0 0 0 rgba(255,77,61,0)}}
-
-/* figures + spec */
-.figures{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:40px 0 0;background:var(--line);border:1px solid var(--line)}
-.figures>div{background:var(--surface);padding:24px 22px;display:flex;flex-direction:column}
-.figures dd{order:-1;margin:0;font-family:var(--display);font-weight:800;font-size:54px;line-height:1;color:var(--orange-lt);font-variant-numeric:tabular-nums}
-.figures dt{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;color:var(--muted);margin-top:8px}
-.spec{display:grid;grid-template-columns:repeat(2,1fr);margin:28px 0 0;border:1px solid var(--line)}
-.spec div{padding:16px 20px;border-bottom:1px solid var(--line)}
-.spec div:nth-last-child(-n+2){border-bottom:none}
-.spec div:nth-child(odd){border-right:1px solid var(--line);background:var(--surface)}
-.spec div:nth-child(2n){background:var(--surface-2)}
-.spec dt{font-family:var(--display);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px;color:var(--muted)}
-.spec dd{margin:4px 0 0;font-size:16px;color:var(--cream)}
-
-/* pills */
-.pills{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.pills li{font-size:14px;color:var(--body-text);border:1px solid var(--line);padding:5px 12px;background:var(--surface)}
-
-/* cards */
-.grid{display:grid;gap:20px;margin-top:40px}
-.g2{grid-template-columns:repeat(2,1fr)}
-.g3{grid-template-columns:repeat(3,1fr)}
-.card{background:var(--surface);border:1px solid var(--line);padding:28px;display:flex;flex-direction:column}
-.card.wide{grid-column:1/-1}
-.card.lead{border-color:var(--orange);border-left-width:4px}
-.card h3{color:var(--orange-lt);margin-bottom:8px}
-.card .meta{font-family:var(--display);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px;color:var(--muted);margin:0 0 4px}
-.card .org{font-size:15px;color:var(--cream);margin:0 0 14px}
-.card ul{margin:0;padding-left:18px;color:var(--card-text);font-size:15.5px}
-.card li{margin-bottom:7px}
-.card li::marker{color:var(--orange-lt)}
-.card .note{margin:16px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);line-height:1.6}
-.card .note strong{color:var(--cream);font-weight:600}
-.tag{align-self:flex-start;font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ground);background:var(--orange-lt);padding:4px 10px;margin-bottom:14px}
-
-/* inline stats */
-.stats{display:flex;flex-wrap:wrap;gap:1px;margin-top:20px;background:var(--line);border:1px solid var(--line);align-self:flex-start}
-.stats div{background:var(--surface-2);padding:12px 18px}
-.stats b{display:block;font-family:var(--display);font-weight:800;font-size:28px;line-height:1;color:var(--orange-lt)}
-.stats span{font-family:var(--display);text-transform:uppercase;letter-spacing:.13em;font-size:11.5px;color:var(--muted)}
-
-/* showcase band */
-.showcase{position:relative;min-height:clamp(440px,72vh,760px);display:flex;align-items:flex-end;padding-block:clamp(48px,7vw,96px);overflow:hidden;border-block:1px solid var(--line);background:#11062a}
-.showcase>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:85% 70%}
-.showcase-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(12,23,39,.94),rgba(12,23,39,.78) 35%,rgba(12,23,39,.2) 62%,rgba(12,23,39,0) 75%),linear-gradient(180deg,rgba(12,23,39,0) 55%,rgba(12,23,39,.88))}
-.showcase .wrap{position:relative;z-index:1}
-.showcase h2{font-size:clamp(44px,7vw,100px);text-shadow:0 2px 24px rgba(0,0,0,.45)}
-.showcase .cap{margin:18px 0 0;font-size:13.5px;color:rgba(244,240,232,.75);max-width:70ch}
-
-/* projects */
-.project{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;margin-top:56px;padding-top:56px;border-top:1px solid var(--line);align-items:start}
-.project:first-of-type{border-top:none;padding-top:0;margin-top:40px}
-.project h3{font-size:clamp(28px,3.4vw,40px);font-weight:800;margin-bottom:8px}
-.project .org{font-family:var(--display);text-transform:uppercase;letter-spacing:.12em;font-size:14px;color:var(--orange-lt);margin:0}
-.project ul{margin:22px 0 0;padding-left:18px;color:var(--card-text);font-size:15.5px}
-.project li{margin-bottom:8px}
-.project li::marker{color:var(--orange-lt)}
-.shots{display:grid;gap:16px}
-.shots figure{margin:0;background:var(--surface);border:1px solid var(--line)}
-.shots img{width:100%;display:block;background:#fff}
-.shots figcaption{padding:10px 14px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
-.project.full{grid-template-columns:1fr}
-.project.full .shots{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-
-/* reference */
-.first{border:1px solid var(--line);border-top:4px solid var(--orange);background:linear-gradient(135deg,var(--surface) 0,var(--ground) 100%);padding:clamp(32px,5vw,64px)}
-.first blockquote{margin:0;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(28px,3.8vw,46px);line-height:1.05;text-wrap:balance}
-.first blockquote em{font-style:normal;color:var(--orange-lt)}
-.first p{margin-top:22px;color:var(--body-text);max-width:68ch}
-.first .who{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:14px;color:var(--muted);margin:22px 0 0}
-.first .who b{color:var(--orange-lt)}
-
-/* skills */
-.list{list-style:none;margin:0;padding:0}
-.list li{padding:8px 0;border-bottom:1px solid var(--line);font-size:15.5px;color:var(--card-text)}
-.list li:last-child{border-bottom:none}
-
-/* band */
-.band{background:var(--orange);color:#fff}
-.band h2{color:#fff}
-.band p{color:#FFE8D6;max-width:60ch}
-.band .eyebrow{color:#FFE0C4}
-.band .btn{background:#fff;border-color:#fff;color:#8F4100}
-.band .btn:hover{background:#FFE8D6;border-color:#FFE8D6}
-.band .btn.ghost{background:transparent;color:#fff;border-color:#fff}
-.band .btn.ghost:hover{background:#fff;color:#8F4100}
-.band .facts{margin:36px 0 0;display:grid;border-top:1px solid rgba(255,255,255,.35)}
-.band .facts>div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.35)}
-.band .facts dt{font-family:var(--display);text-transform:uppercase;letter-spacing:.13em;font-size:12.5px;color:#FFE8D6;padding-top:3px}
-.band .facts dd{margin:0;font-size:15.5px;color:#fff}
-.band .facts a{color:#fff}
-
-/* footer */
-footer{border-top:1px solid var(--line);background:var(--surface);padding-block:44px;font-size:15px}
-footer .wrap{display:flex;gap:28px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
-footer a{color:var(--orange-lt)}
-.foot-links{display:flex;flex-direction:column;gap:6px}
-.legal{color:var(--muted);font-size:13.5px;margin-top:22px;max-width:72ch}
-
-@media (max-width:900px){
-  .hero{min-height:0;display:block;padding-block:0 48px}
-  .hero-art{position:relative;width:100%;aspect-ratio:16/11;margin-bottom:8px}
-  .hero-scrim{display:none}
-  .hero-credit{position:static;text-align:right;padding:6px 16px 0}
-  .g2,.g3,.project{grid-template-columns:1fr}
-  .clock .wrap{grid-template-columns:repeat(2,1fr)}
-  .clock .hms{display:block;margin:6px 0 0;font-size:24px}
-  .figures{grid-template-columns:repeat(2,1fr)}
-  .spec{grid-template-columns:1fr}
-  .spec div:nth-child(odd){border-right:none}
-  .spec div:nth-last-child(2){border-bottom:1px solid var(--line)}
-  .nav .wrap{gap:0 22px}
-  .nav .links{width:100%;overflow-x:auto;scrollbar-width:none;gap:20px;padding:4px 24px 10px 0;margin-top:-4px;-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent)}
-  .nav .links::-webkit-scrollbar{display:none}
-  .nav .lnk{font-size:13px;line-height:2}
-}
-@media (max-width:640px){.band .facts>div{grid-template-columns:1fr;gap:4px}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
-@media (prefers-reduced-motion:no-preference){
-  @keyframes rise{0%{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-  .hero-copy>*{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-  .hero-copy>:nth-child(2){animation-delay:.08s}
-  .hero-copy>:nth-child(3){animation-delay:.16s}
-  .hero-copy>:nth-child(4){animation-delay:.24s}
-  .hero-copy>:nth-child(5){animation-delay:.32s}
-  @keyframes drift{0%{transform:scale(1.06) translateX(1.5%)}to{transform:scale(1.06) translateX(-1.5%)}}
-  .hero-art img{animation:drift 18s ease-in-out infinite alternate}
-  .card,.figures>div,.shots figure{transition:translate .2s,border-color .2s}
-  .card:hover,.shots figure:hover{translate:0 -4px}
-  .card:hover{border-color:var(--orange)}
-  @supports (animation-timeline:view()){
-    .card,.figures>div,.shots figure,.spec,.first,section h2{animation:rise linear both;animation-timeline:view();animation-range:entry 0 entry 35%}
-  }
-}
-</style>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
 <nav class="nav" aria-label="Primary">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="mark" aria-hidden="true">MH</span><b>Mario Hernandez Jr.</b></a>
+    <a class="brand" href="./"><span class="mark" aria-hidden="true">MH</span><b>Mario Hernandez Jr.</b></a>
     <div class="links">
-      <a class="lnk" href="#education">Education</a>
-      <a class="lnk" href="#experience">Experience</a>
-      <a class="lnk" href="#projects">Projects</a>
-      <a class="lnk" href="#reference">Reference</a>
-      <a class="lnk" href="#skills">Skills</a>
-      <a class="lnk" href="#contact">Contact</a>
+      <a class="lnk" href="education/">Education</a>
+      <a class="lnk" href="experience/">Experience</a>
+      <a class="lnk" href="projects/">Projects</a>
+      <a class="lnk" href="reference/">Reference</a>
+      <a class="lnk" href="skills/">Skills</a>
+      <a class="lnk" href="contact/">Contact</a>
     </div>
   </div>
 </nav>
 
 <main id="main">
-
 <header class="hero" id="top">
   <div class="hero-art" aria-hidden="true"><img src="assets/fig-02.png" alt=""></div>
   <div class="hero-scrim" aria-hidden="true"></div>
@@ -251,14 +42,13 @@ footer a{color:var(--orange-lt)}
       <p class="lede">Mechanical engineering student at <strong>The University of Texas at Austin</strong> building flight hardware, actuation systems, and manufacturing drawings for real vehicles — on the ground and off it.</p>
       <p class="lede">Rocket airbrakes, fin-tab roll control, thrust vector control, Mars penetrator drop tests, UAV fixturing and autonomous maritime platforms.</p>
       <div class="btns">
-        <a class="btn" href="#projects">See the projects</a>
-        <a class="btn ghost" href="#contact">Get in touch</a>
+        <a class="btn" href="projects/">See the projects</a>
+        <a class="btn ghost" href="contact/">Get in touch</a>
       </div>
     </div>
   </div>
   <p class="hero-credit">Airbrake mechanism prototype · LRA</p>
 </header>
-
 <div class="clock">
   <div class="wrap">
     <div class="cell">
@@ -272,165 +62,6 @@ footer a{color:var(--orange-lt)}
   </div>
 </div>
 
-<section id="education">
-  <div class="wrap">
-    <p class="eyebrow">01 — Foundation</p>
-    <h2>Education</h2>
-    <p class="lede" style="margin-top:18px">University of Texas at Austin — B.S. Mechanical Engineering with a Minor in Business, expected May 2028.</p>
-    <dl class="figures">
-      <div><dd>3.30</dd><dt>GPA / 4.00</dt></div>
-      <div><dd>2028</dd><dt>Expected graduation</dt></div>
-      <div><dd>B.S.</dd><dt>Mechanical Engineering</dt></div>
-      <div><dd>+1</dd><dt>Minor in Business</dt></div>
-    </dl>
-    <p class="muted" style="margin:28px 0 0;font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:13px">Relevant coursework</p>
-    <ul class="pills">
-      <li>Mechatronics</li>
-      <li>Mechatronics Laboratory</li>
-      <li>Fluid Mechanics</li>
-      <li>Robot Mechanism Design</li>
-      <li>Materials Engineering</li>
-      <li>Materials Engineering Laboratory</li>
-    </ul>
-  </div>
-</section>
-
-<section id="experience" class="alt">
-  <div class="wrap">
-    <p class="eyebrow">02 — Field notes</p>
-    <h2>Experience</h2>
-    <p class="lede" style="margin-top:18px">Eleven roles across aerospace, maritime, medical devices, robotics and research — most of them shipping real hardware.</p>
-
-    <div class="grid g2">
-
-      <article class="card lead wide">
-        <span class="tag">NASA TechLeap Prize · 2026 Winner</span>
-        <p class="meta">Guinn Partners · Austin, TX · 2026 – Present</p>
-        <h3>Engineering — IMPRESS Mars Penetrator Program</h3>
-        <p class="org">NASA TechLeap Prize, Space Technology Payload Challenge</p>
-        <ul>
-          <li>Contributed to the drone-based release mechanism used to free-fall test penetrator aerodynamic stability, and assembled the penetrator test articles ahead of each drop.</li>
-          <li>Upscaled the dropper from a single-penetrator to a six-penetrator payload configuration, supporting IMPRESS's swarm-deployment mission architecture.</li>
-          <li>Lengthened the penetrators' UHF beacon antennas and reinforced coax-cable retention so telemetry hardware survives ground impact intact.</li>
-        </ul>
-        <div class="stats">
-          <div><b>6×</b><span>Penetrator dropper</span></div>
-          <div><b>~1,300–1,600 ft</b><span>Test drop altitude</span></div>
-        </div>
-        <p class="note">IMPRESS — <strong>Iterative Mars Penetrator for Subsurface Science</strong> — is Guinn Partners' entry addressing NASA's "Navigation Sensors for Precision Landing" shortfall, and a 2026 winner of NASA's TechLeap Prize Space Technology Payload Challenge. The technology supports low-cost, swarm-deployable penetrator networks for Mars subsurface science and astrobiology, and is described in a peer-reviewed astrobiology paper co-authored by Guinn Partners' Head of Engineering, Mitchell Richburg.</p>
-      </article>
-
-      <article class="card">
-        <p class="meta">Guinn Partners · Ascendant AI · Austin, TX · 2026 – Present</p>
-        <h3>Engineering Intern — WaveDrone Platform</h3>
-        <p class="org">Autonomous Maritime Vessel Program</p>
-        <ul>
-          <li>Contributes to mechanical design work on an autonomous maritime vessel platform.</li>
-          <li>Supports prototyping and testing efforts for the system.</li>
-          <li>Produces manufacturing drawings for platform components.</li>
-        </ul>
-        <p class="note">Guinn Partners operates as part of <strong>Ascendant AI</strong>, an Austin-based drone engineering, manufacturing, and NDAA-focused product platform.</p>
-      </article>
-
-      <article class="card">
-        <p class="meta">Guinn Partners · Ascendant AI · Austin, TX · 2026</p>
-        <h3>Engineering Intern — UAV Aircraft Project, DZYNE Technologies</h3>
-        <p class="org">DfM &amp; LRIP Support Program</p>
-        <ul>
-          <li>Participated directly in the buildout and prototyping of complex assembly fixturing for an unmanned aerial vehicle.</li>
-          <li>Laid out intricate flex-cable paths to keep system integration clean and reliable.</li>
-          <li>Generated precise manufacturing drawings for individual components to streamline production.</li>
-        </ul>
-        <p class="note">Part of Guinn Partners' design-for-manufacturing and low-rate-initial-production support engagement with <strong>DZYNE Technologies</strong> — the aircraft, production, and outcome are DZYNE's; published with DZYNE's approval via Ascendant AI.</p>
-      </article>
-
-      <article class="card">
-        <p class="meta">Guinn Partners · Ascendant AI · Austin, TX · 2026 – Present</p>
-        <h3>Engineering Intern — MoonTower DAQ Qualification</h3>
-        <p class="org">MoonTower Fleet Intelligence</p>
-        <ul>
-          <li>Building a water-flow test stand to qualify a custom DAQ board against real sensor and actuation signals — pressure transducers, thermocouples, strain gauges, a turbine flow meter, and solenoid/pneumatic valve control.</li>
-          <li>Implementing hardware-level safety interlocks (key-switch arming, E-stop, redundant overpressure protection) that function independently of the DAQ software.</li>
-          <li>Cross-validating sensor channels against each other — redundant pressure transducers, a dual-thermocouple pair, and a hoop/axial strain-gauge pair — to characterize DAQ accuracy before deployment.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <p class="meta">Guinn Partners · Ascendant AI · Austin, TX · 2026 – Present</p>
-        <h3>Engineering — Modular FPV UAS</h3>
-        <p class="org">For 526 Solutions</p>
-        <ul>
-          <li>Redesigns third-party FPV frame geometry for manufacturability, then produces frames from carbon-fiber sheet stock on CNC equipment.</li>
-          <li>Designs and 3D-prints payload-mount hardware for the platform's training-effects payload suite (flashbang and inert training-grenade props), used in simulated-adversary red-cell training exercises.</li>
-          <li>Took in incoming CAD and print files for a multi-material frame/component production run, then split the remaining production work with a colleague to manage the workload.</li>
-        </ul>
-        <p class="note">Ascendant AI is developing the Modular FPV UAS — requirement, design, and build plan — for <strong>526 Solutions</strong>, a U.S. Special Operations-focused training and equipment provider. Program status: in development.</p>
-      </article>
-
-      <article class="card">
-        <p class="meta">Guinn Partners · Austin, TX · 2026 – Present</p>
-        <h3>Engineering — Endotracheal Tube</h3>
-        <p class="org">Client Engagement — Concept to Final Design</p>
-        <ul>
-          <li>Contributes to mechanical design work, helping take the client's initial concept toward a finalized design.</li>
-          <li>Supports prototyping and testing by resin-printing different design variations and evaluating how different resins hold their elasticity.</li>
-          <li>Produces manufacturing drawings for components.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <p class="meta">Guinn Partners · Austin, TX · 2026 – Present</p>
-        <h3>Engineering — Okrabot</h3>
-        <p class="org">Automated Okra-Harvesting Robot</p>
-        <ul>
-          <li>Assembled the chassis frame that the robotic picking arm traverses along while harvesting okra.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <p class="meta">UT Austin ECE · Austin, TX · 2024 – Present</p>
-        <h3>Undergraduate Research Assistant</h3>
-        <p class="org">Additive Manufacturing Research — under Prof. Michael Becker</p>
-        <ul>
-          <li>Runs atomic strain analysis on Al₂O₃ particles using supercomputer simulation data.</li>
-          <li>Visualizes strain and simulation results in MATLAB for the research group.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <p class="meta">NASA HUNCH · Houston, TX · 2023 – 2024</p>
-        <h3>Intern — 3D-Printed Medical Devices</h3>
-        <p class="org">Biomedical Project</p>
-        <ul>
-          <li>Studied how to sanitize 3D-printed medical instruments after use in flight-relevant conditions.</li>
-          <li>Developed a method to recycle printed instruments into new ones, cutting waste and material carried to orbit.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <p class="meta">NASA HUNCH · Houston, TX · 2022 – 2023</p>
-        <h3>Intern — Lunar Scooter Wheels</h3>
-        <p class="org">Prototype Project</p>
-        <ul>
-          <li>Developed front and rear wheels for an electric lunar scooter, tuned for astronaut travel speeds near 1 m/s — far faster than typical rover wheels.</li>
-          <li>Designed tread geometry suited to higher-speed lunar surface travel.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <p class="meta">Hernandez Farms · Brownsville, TX · 2018 – Present</p>
-        <h3>Foreman</h3>
-        <p class="org">Hernandez Farms</p>
-        <ul>
-          <li>Maintains facilities, ranch records, and documentation; handles invoices for bills, sales, and supplies.</li>
-          <li>Inspects and repairs equipment for livestock and crop management, and monitors herd health.</li>
-        </ul>
-      </article>
-
-    </div>
-  </div>
-</section>
-
 <section class="showcase" aria-label="Atomic strain research">
   <img src="assets/fig-06.png" alt="Shear strain density visualizations across three impact simulation cases in an alumina particle" loading="lazy">
   <div class="showcase-scrim" aria-hidden="true"></div>
@@ -440,211 +71,21 @@ footer a{color:var(--orange-lt)}
     <p class="cap">Shear strain density across three simulated impact cases in an Al₂O₃ particle — the banded high-strain regions trace deformation paths through the particle.</p>
   </div>
 </section>
-
 <div class="stripe" aria-hidden="true"></div>
-
-<section id="projects">
+<section id="explore" class="alt">
   <div class="wrap">
-    <p class="eyebrow">03 — Assemblies</p>
-    <h2>Projects</h2>
-    <p class="lede" style="margin-top:18px">Five assemblies on file — designed, simulated, and in most cases built and tested.</p>
-
-    <article class="project">
-      <div>
-        <p class="org">IREC Competition Rocket · Longhorn Rocketry Association</p>
-        <h3>Active Airbrakes Subsystem</h3>
-        <dl class="spec">
-          <div><dt>System</dt><dd>Airbrakes</dd></div>
-          <div><dt>Team</dt><dd>LRA</dd></div>
-          <div><dt>Target apogee</dt><dd>10,000 ft</dd></div>
-          <div><dt>Date</dt><dd>2025 – Now</dd></div>
-        </dl>
-        <ul>
-          <li>Designed an active airbrake system to shed roughly 2,500 ft of apogee and hold a 10,000 ft target altitude.</li>
-          <li>Selected a cam-slot actuation mechanism through trade studies favoring simplicity, low mass, and flight heritage.</li>
-          <li>Ran ANSYS Fluent CFD and Static Structural FEA to size aerodynamic loads and structural margins.</li>
-          <li>Ran transient CFD to capture oscillating vortex shedding on the airbrake bluff plate near Mach 1, extracting drag coefficient and drag force time histories across Mach 0.6–0.9 to validate the design.</li>
-          <li>Supported prototyping and test planning, refining tolerances, materials, and system integration.</li>
-        </ul>
-        <div class="stats">
-          <div><b>SF &gt; 2</b><span>Structural margin</span></div>
-          <div><b>2,500 ft</b><span>Apogee reduction</span></div>
-        </div>
-      </div>
-      <div class="shots">
-        <figure><img src="assets/fig-01.png" loading="lazy" decoding="async" alt="Time history plots of drag coefficient at Mach 0.6, 0.7, 0.8, and 0.9 showing oscillating vortex shedding on the airbrake bluff plate"><figcaption>Transient CFD — drag coefficient time history across Mach 0.6–0.9, capturing vortex-shedding oscillation on the airbrake bluff plate.</figcaption></figure>
-        <figure><img src="assets/fig-02.png" loading="lazy" decoding="async" alt="Physical prototype of the four-petal airbrake mechanism with a center-mounted servo actuator"><figcaption>Prototype of the four-petal airbrake mechanism, servo-actuated from the center hub.</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="project">
-      <div>
-        <p class="org">IREC Competition Rocket — target apogee 2,000 ft, max velocity 110 m/s</p>
-        <h3>Actuating Fin Tabs — Roll Control</h3>
-        <dl class="spec">
-          <div><dt>System</dt><dd>Fin Tabs</dd></div>
-          <div><dt>Team</dt><dd>LRA</dd></div>
-          <div><dt>Actuator</dt><dd>MKS HV6160</dd></div>
-          <div><dt>Date</dt><dd>2025 – Now</dd></div>
-        </dl>
-        <ul>
-          <li>Given three months to design an actuating fin system compact enough for a 3" body diameter, robust enough for high-speed aerodynamic loads, and light enough to protect the altitude target.</li>
-          <li>Ran a trade study weighing a linkage-based mechanism against a tab-based design; selected the tab design for fewer failure points, lower mass, easier control integration, and better scalability.</li>
-          <li>Built and maintained the CAD model in OnShape — a 14 mm-thick fin tab with an embedded slim servo, epoxied servo horn, and a dowel rod supporting rotation on the opposite side.</li>
-          <li>Used ANSYS CFD to find worst-case loading (tab actuated to 45°, 10x normal deflection) — 5,500 Pa static pressure, 2.6 N drag force, 1.25 drag coefficient.</li>
-          <li>Fed those loads into an FEA study confirming the dowel rod would see only 5 N under load, for a factor of safety greater than 6.</li>
-          <li>Calculated 30 N·mm of servo torque from drag loading against a rated 1,000 N·mm back-drive threshold, then bench-tested the servo (measured 1.08 N·m vs. 1.82 N·m stated max) to confirm it would not back-drive in flight.</li>
-        </ul>
-        <div class="stats">
-          <div><b>FOS &gt; 6</b><span>Dowel rod margin</span></div>
-          <div><b>2.6 N</b><span>Drag force</span></div>
-          <div><b>5,500 Pa</b><span>Static pressure</span></div>
-        </div>
-      </div>
-      <div class="shots">
-        <figure><img src="assets/fig-03.png" loading="lazy" decoding="async" alt="CAD assembly render of the three-fin actuating tab system with embedded servo motors"><figcaption>OnShape assembly — three-fin actuating tab system with embedded servo motors and dowel-supported rotation.</figcaption></figure>
-        <figure><img src="assets/fig-04.png" loading="lazy" decoding="async" alt="ANSYS CFD static pressure contour on the fin tab and FEA structural results for the dowel rod"><figcaption>ANSYS CFD static pressure on the tab (top) feeding an FEA structural study of the dowel rod — deformation and safety factor (bottom).</figcaption></figure>
-        <figure><img src="assets/fig-05.png" loading="lazy" decoding="async" alt="Bench test of the servo motor using a crane scale, comparing stated max torque to measured max torque"><figcaption>Bench validation — measured servo torque (1.08 N·m) against the stated max (1.82 N·m), confirming margin against back-driving.</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="project">
-      <div>
-        <p class="org">Longhorn Rocketry Association — Advanced Research</p>
-        <h3>Experimental Thrust Vector Control</h3>
-        <dl class="spec">
-          <div><dt>System</dt><dd>Thrust Vector Control</dd></div>
-          <div><dt>Team</dt><dd>LRA Advanced Research</dd></div>
-          <div><dt>Tools</dt><dd>SolidWorks / OpenRocket / ANSYS</dd></div>
-          <div><dt>Date</dt><dd>2024 – Now</dd></div>
-        </dl>
-        <ul>
-          <li>Works on the mechanical subteam to control an aerodynamically unstable rocket by directing engine thrust.</li>
-          <li>Designed and modeled a 2-axis gimbal TVC assembly in SolidWorks, simulated in OpenRocket for active thrust steering and in-flight attitude correction.</li>
-          <li>Ran ANSYS Static Structural FEA (equivalent von Mises stress) on the gimbal ring, iterating the design to stay within material stress limits.</li>
-          <li>Designed safety features so the rocket cannot aim toward the ground in the event of a mechanical failure.</li>
-        </ul>
-      </div>
-      <div class="shots">
-        <figure><img src="assets/fig-07.png" loading="lazy" decoding="async" alt="ANSYS static structural FEA showing equivalent von Mises stress on the gimbal ring, peaking around 2.43 MPa"><figcaption>ANSYS FEA — equivalent von Mises stress on the gimbal ring under load, peaking around 2.43 MPa near the mount points.</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="project">
-      <div>
-        <p class="org">Propulsion Testing · LRA</p>
-        <h3>Rocket Motor Test Stand</h3>
-        <dl class="spec">
-          <div><dt>System</dt><dd>Motor Test Stand</dd></div>
-          <div><dt>Team</dt><dd>LRA</dd></div>
-          <div><dt>Tools</dt><dd>SolidWorks / KiCad</dd></div>
-          <div><dt>Thrust class</dt><dd>H (~150 lbf)</dd></div>
-        </dl>
-        <ul>
-          <li>Designed and assembled a steel static-fire test stand for solid rocket motors, engineered to withstand H-class thrust levels (~150 lbf).</li>
-          <li>Designed the ignition and control electronics in KiCad for safe, remote motor ignition.</li>
-        </ul>
-        <div class="stats">
-          <div><b>~150 lbf</b><span>Rated thrust</span></div>
-        </div>
-      </div>
-      <div class="shots">
-        <figure><img src="assets/fig-08.png" loading="lazy" decoding="async" alt="SolidWorks render of the steel rocket motor static-fire test stand, front three-quarter view"><figcaption>SolidWorks model of the static-fire test stand — steel frame sized for H-class motor thrust.</figcaption></figure>
-        <figure><img src="assets/fig-09.png" loading="lazy" decoding="async" alt="SolidWorks render of the steel rocket motor static-fire test stand, isometric angle"><figcaption>Isometric view showing the motor mount and base-plate bracing.</figcaption></figure>
-      </div>
-    </article>
-
-    <article class="project full">
-      <div>
-        <p class="org">UT Austin ECE Research, under Prof. Michael Becker</p>
-        <h3>Additive Manufacturing — Atomic Strain Analysis</h3>
-        <dl class="spec">
-          <div><dt>System</dt><dd>Strain Analysis</dd></div>
-          <div><dt>Team</dt><dd>M. Hernandez, S. Pinapati</dd></div>
-          <div><dt>Tools</dt><dd>OVITO / MATLAB / LAMMPS</dd></div>
-          <div><dt>Date</dt><dd>2024 – Present</dd></div>
-        </dl>
-        <ul>
-          <li>Wrote code to parse and analyze large molecular-dynamics configuration files (.cfg) from LAMMPS simulations.</li>
-          <li>Generated strain density functions to characterize deformation in Al₂O₃ particles at the atomic scale.</li>
-          <li>Examined how impact velocity and crystal orientation change resulting shear-strain distributions.</li>
-          <li>Visualized simulation output in OVITO and processed results in MATLAB to identify strain concentration patterns.</li>
-        </ul>
-      </div>
-      <div class="shots">
-        <figure><img src="assets/fig-06.png" loading="lazy" decoding="async" alt="Shear strain density visualizations across three impact simulation cases in an alumina particle"><figcaption>Shear strain density across three simulated impact cases — the banded high-strain regions (yellow) trace deformation paths through the particle.</figcaption></figure>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section id="reference" class="alt">
-  <div class="wrap">
-    <p class="eyebrow">04 — Sign-off</p>
-    <div class="first">
-      <blockquote>“Mario is an all-around very capable young man who has quickly proven himself to be a <em>vital asset</em> to our team.”</blockquote>
-      <p>He brought technical intuition and hands-on ability beyond his years, stepping into unfamiliar work with confidence rather than hesitation — and volunteering wherever he could to expand his engineering toolkit.</p>
-      <p class="who"><b>Mitchell Richburg</b> — Head of Engineering, Guinn Partners · June 2026</p>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <p class="eyebrow">05 — Specifications</p>
-    <h2>Skills &amp; certifications</h2>
+    <p class="eyebrow">Explore</p>
+    <h2>The portfolio, sheet by sheet</h2>
     <div class="grid g3">
-      <div class="card">
-        <h3>CAD / Simulation</h3>
-        <ul class="list">
-          <li>SolidWorks</li><li>Fusion 360</li><li>Onshape</li><li>Revit</li>
-          <li>ANSYS Fluent (CFD)</li><li>ANSYS Static Structural (FEA)</li>
-          <li>OpenRocket</li><li>MATLAB</li><li>OVITO</li><li>LAMMPS</li><li>KiCad</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Robotics certifications</h3>
-        <ul class="list">
-          <li>SACA C-101 Industry 4.0 Associate</li>
-          <li>KAWASAKI Certified Robot Operator/Programming</li>
-          <li>FANUC Certified Robot Operator/Programming</li>
-          <li>KUKA Certified Robot Operator/Programming</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Societies &amp; language</h3>
-        <ul class="list">
-          <li>Terry Scholar</li>
-          <li>SHPE — Member</li>
-          <li>Longhorn Rocketry Association</li>
-          <li>STARS Society (NASA Anchor)</li>
-          <li>FITS — Co-Founder</li>
-          <li>Fluent in Spanish</li>
-        </ul>
-      </div>
+      <a class="card path" href="experience/"><h3>Experience</h3><p>Eleven roles — Mars penetrator drop tests, UAV fixturing, autonomous maritime platforms, DAQ qualification and more.</p><span class="go">Field notes →</span></a>
+      <a class="card path" href="projects/"><h3>Projects</h3><p>Airbrakes, fin-tab roll control, thrust vector control, a motor test stand, and atomic strain research.</p><span class="go">Assemblies →</span></a>
+      <a class="card path" href="education/"><h3>Education</h3><p>B.S. Mechanical Engineering with a Business Minor at UT Austin, expected May 2028.</p><span class="go">Foundation →</span></a>
+      <a class="card path" href="skills/"><h3>Skills</h3><p>CAD and simulation tools, four industrial robotics certifications, societies and languages.</p><span class="go">Specifications →</span></a>
+      <a class="card path" href="reference/"><h3>Reference</h3><p>A word from Mitchell Richburg, Head of Engineering at Guinn Partners.</p><span class="go">Sign-off →</span></a>
+      <a class="card path" href="contact/"><h3>Contact</h3><p>Open to internships and co-ops in aerospace structures, actuation, and hardware test.</p><span class="go">Get in touch →</span></a>
     </div>
   </div>
 </section>
-
-<section id="contact" class="band">
-  <div class="wrap">
-    <p class="eyebrow">06 — Contact</p>
-    <h2>Let's build<br>something real.</h2>
-    <p style="margin-top:18px">Open to internships and co-ops in aerospace structures, actuation, and hardware test. Work eligible in the U.S.; open to relocation with sponsorship.</p>
-    <div class="btns">
-      <a class="btn" href="mailto:mariothdz@utexas.edu">Email me</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/mario-hernandez813" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-    <dl class="facts">
-      <div><dt>Email</dt><dd><a href="mailto:mariothdz@utexas.edu">mariothdz@utexas.edu</a></dd></div>
-      <div><dt>Phone</dt><dd><a href="tel:9562417934">(956) 241-7934</a></dd></div>
-      <div><dt>Based</dt><dd>San Benito, TX</dd></div>
-      <div><dt>Program</dt><dd>B.S. Mechanical Engineering · Business Minor · UT Austin</dd></div>
-    </dl>
-  </div>
-</section>
-
 </main>
 
 <footer>
@@ -654,10 +95,10 @@ footer a{color:var(--orange-lt)}
       <p class="muted" style="margin:0">Mechanical Engineering · The University of Texas at Austin</p>
     </div>
     <nav class="foot-links" aria-label="Footer">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+      <a href="experience/">Experience</a>
+      <a href="projects/">Projects</a>
+      <a href="skills/">Skills</a>
+      <a href="contact/">Contact</a>
     </nav>
     <div>
       <p style="margin:0 0 6px"><a href="mailto:mariothdz@utexas.edu">mariothdz@utexas.edu</a></p>
@@ -668,7 +109,6 @@ footer a{color:var(--orange-lt)}
     <p class="legal">Work described under Guinn Partners / Ascendant AI programs belongs to those organisations and their clients and is published with their approval. Work eligible in the U.S. · Open to relocation with sponsorship.</p>
   </div>
 </footer>
-
 <script>
 // Graduation countdown — adjust the date once commencement is announced.
 (function(){
@@ -681,22 +121,6 @@ footer a{color:var(--orange-lt)}
     el.innerHTML = d + '<small>D</small><span class="hms">' + pad(Math.floor(s/3600)) + ':' + pad(Math.floor(s%3600/60)) + ':' + pad(s%60) + '</span>';
   }
   tick(); setInterval(tick, 1000);
-})();
-
-// Highlight the nav link for the section in view.
-(function(){
-  var links = document.querySelectorAll('.nav .lnk');
-  var map = {};
-  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting && map[e.target.id]) {
-        links.forEach(function(a){ a.classList.remove('on'); });
-        map[e.target.id].classList.add('on');
-      }
-    });
-  }, {rootMargin:'-40% 0px -55% 0px'});
-  Object.keys(map).forEach(function(id){ var s = document.getElementById(id); if (s) io.observe(s); });
 })();
 </script>
 </body>
