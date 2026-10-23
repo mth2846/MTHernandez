@@ -15,7 +15,8 @@ Layout and visual design modeled on [Retvin Pant's portfolio](https://ret101.git
 - **Home**: hero carousel, profile and bio cards, experience timeline, reference
 - **Industry Experience** (`/industry`): Guinn Partners / Ascendant AI programs, one page each
 - **Longhorn Rocketry** (`/rocketry`): airbrakes, fin tabs, TVC gimbal, TVC flight computer, Rocket V9, motor test stand
-- **Research** (`/research`): UT Austin ECE atomic strain analysis, NASA HUNCH projects
+- **Team Projects** (`/team`): Texas Moto Racing (founder), Longhorn Baja Racing, Longhorn Rocketry
+- **Research** (`/research`): Chandra Dept. of ECE atomic strain analysis, NASA HUNCH projects
 - **Skills** (`/skills`): tools, certifications, coursework, education
 
 Old links (`/experience/`, `/projects/`, `/education/`, `/reference/`, `/contact/`) redirect to the new pages.

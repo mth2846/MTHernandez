@@ -1,5 +1,6 @@
 import {
   TbMeteor, TbSailboat, TbPlane, TbGauge, TbDrone, TbLungs, TbPlant2, TbFirstAidKit, TbMoon,
+  TbMotorbike, TbSteeringWheel,
 } from 'react-icons/tb'
 import img from '../img'
 
@@ -10,25 +11,27 @@ import img from '../img'
 const industry = { backTo: '/industry', backLabel: 'Industry Experience' }
 const rocketry = { backTo: '/rocketry', backLabel: 'Longhorn Rocketry' }
 const research = { backTo: '/research', backLabel: 'Research' }
+const team = { backTo: '/team', backLabel: 'Team Projects' }
 
 export const projects = {
   // ─── Industry: Guinn Partners / Ascendant AI ────────────────────────────────
   impress: {
     ...industry,
-    tag: 'Guinn Partners · Austin, TX · 2026 – Present',
+    tag: 'Guinn Partners · Austin, TX · Jan 2026 – Present',
     title: 'IMPRESS Mars Penetrator Program',
     award: 'NASA TechLeap 2026 Winner',
     heroCover: TbMeteor,
     heroCoverCode: 'IMPRESS · Mars Penetrator',
     software: ['Release Mechanism Design', 'Drop Testing', 'Test Article Assembly', 'UHF Antenna & Coax Integration'],
-    roles: ['Engineering'],
+    roles: ['Mechanical Engineering Intern'],
     card: {
       cover: TbMeteor,
       coverCode: 'IMPRESS',
-      description: 'Drone-based release mechanism and test articles for free-fall drop tests of Mars penetrators, upscaled from one to six penetrators per drop.',
+      description: 'Designed the drone-mounted drop-test release for Mars penetrators, then scaled it to a 6-penetrator carriage, cutting sorties per data set 6:1.',
     },
     stats: [
-      { value: '6×', label: 'Penetrator Dropper' },
+      { value: '6×', label: 'Penetrator Carriage' },
+      { value: '6:1', label: 'Fewer Sorties per Data Set' },
       { value: '~1,300–1,600 ft', label: 'Test Drop Altitude' },
       { value: '2026 Winner', label: 'NASA TechLeap Prize' },
     ],
@@ -37,9 +40,9 @@ export const projects = {
       text: "IMPRESS, the Iterative Mars Penetrator for Subsurface Science, is Guinn Partners' entry addressing NASA's \"Navigation Sensors for Precision Landing\" shortfall, and a 2026 winner of NASA's TechLeap Prize Space Technology Payload Challenge. The technology supports low-cost, swarm-deployable penetrator networks for Mars subsurface science and astrobiology.",
     },
     contributions: [
-      'Contributed to the drone-based release mechanism used to free-fall test penetrator aerodynamic stability, and assembled the penetrator test articles ahead of each drop.',
-      "Upscaled the dropper from a single-penetrator to a six-penetrator payload configuration, supporting IMPRESS's swarm-deployment mission architecture.",
-      "Lengthened the penetrators' UHF beacon antennas and reinforced coax-cable retention so telemetry hardware survives ground impact intact.",
+      'Designed the drone-mounted drop-test release used to free-fall test penetrator aerodynamic stability, and assembled the penetrator test articles ahead of each drop.',
+      "Scaled the release from a single penetrator to a 6-penetrator carriage, cutting sorties per data set 6:1 and supporting IMPRESS's swarm-deployment mission architecture.",
+      "Hardened antenna and coax terminations, lengthening the penetrators' UHF beacon antennas and reinforcing coax-cable retention, so penetrator instrumentation survives impact shock.",
     ],
     context: {
       tag: 'Published Research',
@@ -50,7 +53,7 @@ export const projects = {
 
   wavedrone: {
     ...industry,
-    tag: 'Guinn Partners · Ascendant AI · 2026 – Present',
+    tag: 'Guinn Partners · Ascendant AI · Jan 2026 – Present',
     title: 'WaveDrone Autonomous Maritime Platform',
     heroCover: TbSailboat,
     heroCoverCode: 'WaveDrone · Maritime',
@@ -59,16 +62,19 @@ export const projects = {
     card: {
       cover: TbSailboat,
       coverCode: 'WaveDrone',
-      description: 'Mechanical design, prototyping, testing, and manufacturing drawings for an autonomous maritime vessel platform.',
+      description: 'Own design, prototype build, and validation testing of 5 subassemblies on an autonomous maritime vessel, turning test data into released fabrication drawings.',
     },
     challenge: {
       title: 'The Program',
-      text: 'WaveDrone is an autonomous maritime vessel program run through Ascendant AI. I support the platform across mechanical design, prototype builds and test, and production documentation.',
+      text: 'WaveDrone is an autonomous maritime vessel program run through Ascendant AI. I own five of its subassemblies from design through prototype build, validation testing, and released fabrication drawings.',
     },
+    stats: [
+      { value: '5', label: 'Subassemblies Owned' },
+    ],
     contributions: [
-      'Contributes to mechanical design work on an autonomous maritime vessel platform.',
-      'Supports prototyping and testing efforts for the system.',
-      'Produces manufacturing drawings for platform components.',
+      'Own the design of 5 subassemblies on the autonomous maritime vessel platform.',
+      'Build the prototypes and run validation testing on each subassembly.',
+      'Turn test data into released fabrication drawings for platform components.',
     ],
     context: {
       tag: 'About',
@@ -83,21 +89,25 @@ export const projects = {
     title: 'UAV Assembly Fixturing, DZYNE Technologies',
     heroCover: TbPlane,
     heroCoverCode: 'DZYNE · DfM & LRIP',
-    software: ['Assembly Fixturing', 'Flex-Cable Routing', 'Manufacturing Drawings', 'Design for Manufacturing'],
+    software: ['Assembly Fixturing', 'Tolerance Stack-Up', 'Flex-Cable Routing', 'Manufacturing Drawings', 'Design for Manufacturing'],
     roles: ['Engineering Intern'],
     card: {
       cover: TbPlane,
       coverCode: 'DZYNE · DfM / LRIP',
-      description: 'Buildout and prototyping of complex assembly fixturing for an unmanned aerial vehicle, plus flex-cable layout and component drawings.',
+      description: 'Assembly fixturing that holds wing/fuselage tolerance stack-up, flex-cable harnesses through 5 structural interfaces, and 100+ released manufacturing drawings.',
     },
     challenge: {
       title: 'The Program',
       text: 'A design-for-manufacturing and low-rate-initial-production (DfM & LRIP) support program for an unmanned aircraft: getting the vehicle from prototype toward repeatable production.',
     },
+    stats: [
+      { value: '100+', label: 'Manufacturing Drawings Released' },
+      { value: '5', label: 'Structural Interfaces Routed' },
+    ],
     contributions: [
-      'Participated directly in the buildout and prototyping of complex assembly fixturing for an unmanned aerial vehicle.',
-      'Laid out intricate flex-cable paths to keep system integration clean and reliable.',
-      'Generated precise manufacturing drawings for individual components to streamline production.',
+      'Designed assembly fixturing to hold wing/fuselage tolerance stack-up, and took part in its buildout and prototyping.',
+      'Routed flex-cable harnesses through 5 structural interfaces to keep system integration clean and reliable.',
+      "Released 100+ manufacturing drawings to the shop floor for the program's DFM and low-rate initial production builds.",
     ],
     context: {
       tag: 'Client Work',
@@ -108,7 +118,7 @@ export const projects = {
 
   'moontower-daq': {
     ...industry,
-    tag: 'Guinn Partners · Ascendant AI · 2026 – Present',
+    tag: 'Guinn Partners · Ascendant AI · Jan 2026 – Present',
     title: 'MoonTower DAQ Qualification',
     inProgress: true,
     heroCover: TbGauge,
@@ -118,12 +128,16 @@ export const projects = {
     card: {
       cover: TbGauge,
       coverCode: 'MoonTower · DAQ',
-      description: 'Water-flow test stand that qualifies a custom DAQ board against real sensor and actuation signals, with hardware-level safety interlocks.',
+      description: 'Water-flow stand that qualifies pressure, temperature, strain, and flow sensors on 50 DAQ channels in repeatable runs, with hardware-level safety interlocks.',
     },
     challenge: {
       title: 'Engineering Challenge',
       text: 'Qualify a custom data-acquisition board for MoonTower Fleet Intelligence before deployment by running it against real sensor and actuation signals, with safety that does not depend on the DAQ software being right.',
     },
+    stats: [
+      { value: '50', label: 'DAQ Channels' },
+      { value: '4', label: 'Sensor Types' },
+    ],
     specs: [
       {
         title: 'Sensor Channels',
@@ -145,7 +159,7 @@ export const projects = {
       },
     ],
     contributions: [
-      'Building a water-flow test stand to qualify a custom DAQ board against real sensor and actuation signals: pressure transducers, thermocouples, strain gauges, a turbine flow meter, and solenoid/pneumatic valve control.',
+      'Designing a water-flow stand that qualifies pressure, temperature, strain, and flow sensors on 50 DAQ channels in repeatable runs, using pressure transducers, thermocouples, strain gauges, a turbine flow meter, and solenoid/pneumatic valve control.',
       'Implementing hardware-level safety interlocks (key-switch arming, E-stop, redundant overpressure protection) that function independently of the DAQ software.',
       'Cross-validating sensor channels against each other (redundant pressure transducers, a dual-thermocouple pair, and a hoop/axial strain-gauge pair) to characterize DAQ accuracy before deployment.',
     ],
@@ -153,13 +167,13 @@ export const projects = {
 
   'modular-fpv-uas': {
     ...industry,
-    tag: 'Ascendant AI for 526 Solutions · 2026 – Present',
+    tag: 'Ascendant AI for 526 Solutions · Jan 2026 – Present',
     title: 'Modular FPV UAS',
     inProgress: true,
     heroCover: TbDrone,
     heroCoverCode: '526 Solutions · FPV UAS',
     software: ['Design for Manufacturing', 'CNC Machining', 'Carbon-Fiber Sheet', '3D Printing', 'Payload Mount Design', 'Production Planning'],
-    roles: ['Engineering'],
+    roles: ['Mechanical Engineering Intern'],
     card: {
       cover: TbDrone,
       coverCode: '526 · FPV UAS',
@@ -178,25 +192,28 @@ export const projects = {
 
   'endotracheal-tube': {
     ...industry,
-    tag: 'Guinn Partners · Austin, TX · 2026 – Present',
+    tag: 'Guinn Partners · Austin, TX · Jan 2026 – Present',
     title: 'Endotracheal Tube',
     heroCover: TbLungs,
     heroCoverCode: 'Medical Device',
     software: ['Mechanical Design', 'Resin 3D Printing', 'Material Evaluation', 'Manufacturing Drawings'],
-    roles: ['Engineering'],
+    roles: ['Mechanical Engineering Intern'],
     card: {
       cover: TbLungs,
       coverCode: 'Medical Device',
-      description: "Client engagement taking an endotracheal tube from initial concept toward final design, with resin-printed variants tested for elasticity.",
+      description: 'Resin-printed 30 design variants to characterize material elasticity, then drew the manufacturing package for the final design.',
     },
     challenge: {
       title: 'The Engagement',
       text: "A client engagement running from concept to final design: helping take the client's initial endotracheal tube concept toward a finalized, manufacturable design.",
     },
+    stats: [
+      { value: '30', label: 'Resin-Printed Variants' },
+    ],
     contributions: [
       "Contributes to mechanical design work, helping take the client's initial concept toward a finalized design.",
-      'Supports prototyping and testing by resin-printing different design variations and evaluating how different resins hold their elasticity.',
-      'Produces manufacturing drawings for components.',
+      'Resin-printed 30 design variants to characterize material elasticity and how different resins hold it.',
+      'Drew the manufacturing package for the final design.',
     ],
   },
 
@@ -304,6 +321,11 @@ export const projects = {
       },
     ],
     related: { to: '/rocketry/rocket-v9', label: 'See the Rocket Version 9 airframe it was sized for →' },
+    context: {
+      tag: 'Next Revision · Aug 2024 – Present',
+      title: 'V7 Flight Computer',
+      text: 'Designing a 4-layer, dual-MCU board in KiCad that runs TVC, canards, flywheel, and airbrakes, with a safety co-processor. I am integrating encoder-feedback flywheel and servo airbrake drives; the next revision is set to fly at Spaceport America Cup.',
+    },
     figures: [
       { src: img('/images/tvc-pcb-iso.webp'), alt: 'Angled 3D render of the LRA TVC V5 flight computer board', caption: 'KiCad 3D render: the eight actuator headers run along the bottom edge next to the servo battery input.' },
       { src: img('/images/tvc-pcb-top.webp'), alt: 'Top-down render of the LRA TVC V5 board showing the ESP32 module, power stage, pyro drivers and shift registers', caption: 'Top view: switching supply top-left, ESP32 and USB-UART top-right, pyro drivers left, shift registers and servo power along the bottom.' },
@@ -312,13 +334,13 @@ export const projects = {
 
   airbrakes: {
     ...rocketry,
-    tag: 'IREC Competition Rocket · 2025 – Present',
+    tag: 'IREC / Spaceport America Cup · Aug 2025 – Present',
     title: 'Active Airbrakes Subsystem',
     inProgress: true,
     heroImage: img('/images/fig-02.png'),
     heroStyle: { backgroundPosition: 'center 45%' },
-    software: ['ANSYS Fluent (CFD)', 'Transient CFD', 'ANSYS Static Structural (FEA)', 'Trade Studies'],
-    roles: ['Airbrake Design'],
+    software: ['ANSYS Fluent (CFD)', 'Transient CFD', 'ANSYS Static Structural (FEA)', 'Weighted Trade Studies'],
+    roles: ['Design Engineer'],
     card: {
       image: img('/images/fig-02.png'),
       description: 'Cam-slot airbrake that sheds ~2,500 ft of apogee to hold a 10,000 ft target, sized with steady and transient CFD plus structural FEA.',
@@ -346,8 +368,8 @@ export const projects = {
     ],
     contributions: [
       'Designed an active airbrake system to shed roughly 2,500 ft of apogee and hold a 10,000 ft target altitude.',
-      'Selected a cam-slot actuation mechanism through trade studies favoring simplicity, low mass, and flight heritage.',
-      'Ran ANSYS Fluent CFD and Static Structural FEA to size aerodynamic loads and structural margins.',
+      'Selected cam-slot actuation through a weighted trade study on simplicity, mass, and flight heritage.',
+      'Ran ANSYS Fluent CFD and Static Structural FEA to size aerodynamic loads, closing the structure at a safety factor above 2.',
       'Ran transient CFD to capture oscillating vortex shedding on the airbrake bluff plate near Mach 1, extracting drag coefficient and drag force time histories across Mach 0.6–0.9 to validate the design.',
       'Supported prototyping and test planning, refining tolerances, materials, and system integration.',
     ],
@@ -355,7 +377,7 @@ export const projects = {
       {
         title: 'Actuation Mechanism, Cam-Slot',
         chose: 'Cam-slot actuation driven from a center-mounted servo.',
-        body: 'Selected through trade studies that favored simplicity, low mass, and flight heritage.',
+        body: 'Selected through a weighted trade study scoring simplicity, mass, and flight heritage.',
       },
       {
         title: 'Validation, Transient CFD',
@@ -371,12 +393,12 @@ export const projects = {
 
   'fin-tabs': {
     ...rocketry,
-    tag: 'IREC Competition Rocket · 2025 – Present',
+    tag: 'IREC / Spaceport America Cup · Aug 2025 – Present',
     title: 'Actuating Fin Tabs: Roll Control',
     inProgress: true,
     heroImage: img('/images/fig-03.png'),
     software: ['Onshape', 'ANSYS Fluent (CFD)', 'ANSYS Static Structural (FEA)', 'Trade Studies', 'Bench Testing'],
-    roles: ['Mechanical Design'],
+    roles: ['Subsystem Lead'],
     card: {
       image: img('/images/fig-03.png'),
       imageStyle: { background: '#f4f5f7', objectFit: 'contain' },
@@ -386,7 +408,7 @@ export const projects = {
       { value: 'FOS > 6', label: 'Dowel Rod Margin' },
       { value: '2.6 N', label: 'Drag Force' },
       { value: '5,500 Pa', label: 'Static Pressure' },
-      { value: '1.25', label: 'Drag Coefficient' },
+      { value: '~36×', label: 'Servo Torque vs. Hinge Load' },
     ],
     challenge: {
       title: 'Engineering Challenge',
@@ -411,21 +433,23 @@ export const projects = {
           ['Back-Drive Threshold', '1,000 N·mm'],
           ['Measured Max Torque', '1.08 N·m'],
           ['Stated Max Torque', '1.82 N·m'],
+          ['Drag Coefficient', '1.25'],
         ],
       },
     ],
     contributions: [
+      'Led a 3-month tab-vs-linkage trade study for a 2,000 ft / 110 m/s vehicle, selecting the tab design.',
       'Built and maintained the CAD model in Onshape: a 14 mm-thick fin tab with an embedded slim servo, epoxied servo horn, and a dowel rod supporting rotation on the opposite side.',
       'Used ANSYS CFD to find worst-case loading (tab actuated to 45°, 10x normal deflection): 5,500 Pa static pressure, 2.6 N drag force, 1.25 drag coefficient.',
       'Fed those loads into an FEA study confirming the dowel rod would see only 5 N under load, for a factor of safety greater than 6.',
-      'Calculated 30 N·mm of servo torque from drag loading against a rated 1,000 N·mm back-drive threshold, then bench-tested the servo (measured 1.08 N·m vs. 1.82 N·m stated max) to confirm it would not back-drive in flight.',
+      'Calculated 30 N·mm of hinge load from drag against a rated 1,000 N·mm back-drive threshold, then bench-tested the servo: it delivers 1.08 N·m, 41% under its 1.82 N·m rating but ~36× the hinge load, ruling out in-flight back-driving.',
     ],
     decisions: [
       {
         title: 'Mechanism, Tab vs. Linkage',
         chose: 'Tab-based design with an embedded slim servo.',
         rejected: 'a linkage-based mechanism.',
-        body: 'The trade study favored the tab design for fewer failure points, lower mass, easier control integration, and better scalability.',
+        body: 'The tab design fits the servo inside a 14 mm fin tab on the 3 in airframe, with fewer failure points and less actuated mass. It also scored better on control integration and scalability.',
       },
     ],
     figures: [
@@ -437,12 +461,12 @@ export const projects = {
 
   'thrust-vector-control': {
     ...rocketry,
-    tag: 'LRA Advanced Research · 2024 – Present',
+    tag: 'LRA Advanced Research · Aug 2024 – Present',
     title: 'Experimental Thrust Vector Control',
     inProgress: true,
     heroImage: img('/images/fig-07.png'),
     software: ['SolidWorks', 'OpenRocket', 'ANSYS Static Structural (FEA)'],
-    roles: ['Mechanical Subteam'],
+    roles: ['Mechanical & Avionics'],
     card: {
       image: img('/images/fig-07.png'),
       description: '2-axis gimbal TVC assembly in SolidWorks, simulated in OpenRocket and iterated with ANSYS FEA, with fail-safes so the rocket cannot aim at the ground.',
@@ -454,13 +478,13 @@ export const projects = {
     ],
     challenge: {
       title: 'Engineering Challenge',
-      text: 'Control an aerodynamically unstable rocket by directing engine thrust, without letting a mechanical failure point the vehicle toward the ground.',
+      text: 'Control an aerodynamically unstable rocket by directing engine thrust, without letting an actuator or linkage failure vector thrust toward the ground.',
     },
     contributions: [
       'Works on the mechanical subteam to control an aerodynamically unstable rocket by directing engine thrust.',
       'Designed and modeled a 2-axis gimbal TVC assembly in SolidWorks, simulated in OpenRocket for active thrust steering and in-flight attitude correction.',
       'Ran ANSYS Static Structural FEA (equivalent von Mises stress) on the gimbal ring, iterating the design to stay within material stress limits.',
-      'Designed safety features so the rocket cannot aim toward the ground in the event of a mechanical failure.',
+      'Designed fail-safes that keep thrust from vectoring toward the ground if an actuator or linkage fails.',
     ],
     figures: [
       { src: img('/images/fig-07.png'), alt: 'ANSYS static structural FEA showing equivalent von Mises stress on the gimbal ring, peaking around 2.43 MPa', caption: 'ANSYS FEA: equivalent von Mises stress on the gimbal ring under load, peaking around 2.43 MPa near the mount points.', wide: true },
@@ -469,7 +493,7 @@ export const projects = {
 
   'motor-test-stand': {
     ...rocketry,
-    tag: 'Propulsion Testing · Longhorn Rocketry',
+    tag: 'Propulsion Testing · Longhorn Rocketry · Aug 2025 – Present',
     title: 'Rocket Motor Test Stand',
     heroImage: img('/images/fig-08.png'),
     software: ['SolidWorks', 'KiCad', 'Steel Fabrication', 'Ignition Electronics'],
@@ -477,7 +501,7 @@ export const projects = {
     card: {
       image: img('/images/fig-08.png'),
       imageStyle: { background: '#f4f5f7', objectFit: 'contain' },
-      description: 'Steel static-fire stand for solid rocket motors rated for H-class thrust (~150 lbf), with KiCad ignition electronics for safe remote firing.',
+      description: 'Welded steel static-fire stand rated for H-class thrust (~150 lbf), with KiCad-designed remote ignition electronics.',
     },
     stats: [
       { value: '~150 lbf', label: 'Rated Thrust' },
@@ -486,7 +510,7 @@ export const projects = {
       { value: 'Remote', label: 'Ignition' },
     ],
     contributions: [
-      'Designed and assembled a steel static-fire test stand for solid rocket motors, engineered to withstand H-class thrust levels (~150 lbf).',
+      'Designed and built a welded steel static-fire test stand for solid rocket motors, engineered to withstand H-class thrust levels (~150 lbf).',
       'Designed the ignition and control electronics in KiCad for safe, remote motor ignition.',
     ],
     figures: [
@@ -498,19 +522,19 @@ export const projects = {
   // ─── Research ──────────────────────────────────────────────────────────────
   'atomic-strain': {
     ...research,
-    tag: 'UT Austin ECE · Prof. Michael Becker · 2024 – Present',
+    tag: 'Chandra Dept. of ECE · Prof. Michael Becker · Aug 2024 – Aug 2025',
     title: 'Additive Manufacturing: Atomic Strain Analysis',
     heroImage: img('/images/fig-06.png'),
     software: ['OVITO', 'MATLAB', 'LAMMPS', 'Supercomputer Simulation Data'],
     roles: ['Undergraduate Research Assistant'],
     card: {
       image: img('/images/fig-06.png'),
-      description: 'Parsing LAMMPS molecular-dynamics output to build strain density functions for Al₂O₃ particles, and how impact velocity and orientation shift shear strain.',
+      description: 'A MATLAB pipeline across 150+ LAMMPS runs showing how impact velocity and crystal orientation drive shear strain in Al₂O₃ particles.',
     },
     stats: [
+      { value: '150+', label: 'LAMMPS Runs Analyzed' },
       { value: 'Al₂O₃', label: 'Particle Material' },
       { value: 'Atomic', label: 'Length Scale' },
-      { value: 'LAMMPS', label: 'MD Simulation Data' },
     ],
     challenge: {
       title: 'Research Question',
@@ -523,15 +547,15 @@ export const projects = {
           ['System', 'Strain Analysis'],
           ['Team', 'M. Hernandez, S. Pinapati'],
           ['Tools', 'OVITO / MATLAB / LAMMPS'],
-          ['Date', '2024 – Present'],
+          ['Date', 'Aug 2024 – Aug 2025'],
         ],
       },
     ],
     contributions: [
+      'Built a MATLAB pipeline across 150+ LAMMPS runs showing how impact velocity and crystal orientation drive shear strain in Al₂O₃.',
       'Wrote code to parse and analyze large molecular-dynamics configuration files (.cfg) from LAMMPS simulations, working from supercomputer simulation data.',
       'Generated strain density functions to characterize deformation in Al₂O₃ particles at the atomic scale.',
-      'Examined how impact velocity and crystal orientation change resulting shear-strain distributions.',
-      'Visualized simulation output in OVITO and processed results in MATLAB for the research group to identify strain concentration patterns.',
+      'Mapped deformation fields in OVITO to flag the crystal orientations most prone to fracture during particle deposition.',
     ],
     figures: [
       { src: img('/images/fig-06.png'), alt: 'Shear strain density visualizations across three impact simulation cases in an alumina particle', caption: 'Shear strain density across three simulated impact cases: the banded high-strain regions (yellow) trace deformation paths through the particle.', wide: true },
@@ -545,11 +569,11 @@ export const projects = {
     heroCover: TbFirstAidKit,
     heroCoverCode: 'NASA HUNCH · Biomedical',
     software: ['3D Printing', 'Sanitization Methods', 'Material Recycling'],
-    roles: ['Intern'],
+    roles: ['Engineering Intern'],
     card: {
       cover: TbFirstAidKit,
       coverCode: 'NASA HUNCH · Biomedical',
-      description: 'Sanitizing 3D-printed medical instruments after use in flight-relevant conditions, and recycling them into new ones to cut material carried to orbit.',
+      description: 'A closed-loop process recycling used 3D-printed medical instruments into new stock, cutting waste and launch mass, plus sanitizing them after use.',
     },
     challenge: {
       title: 'Engineering Challenge',
@@ -557,7 +581,7 @@ export const projects = {
     },
     contributions: [
       'Studied how to sanitize 3D-printed medical instruments after use in flight-relevant conditions.',
-      'Developed a method to recycle printed instruments into new ones, cutting waste and material carried to orbit.',
+      'Built a closed-loop process recycling used 3D-printed medical instruments into new stock, cutting waste and launch mass.',
     ],
   },
 
@@ -568,11 +592,11 @@ export const projects = {
     heroCover: TbMoon,
     heroCoverCode: 'NASA HUNCH · Prototype',
     software: ['Wheel Design', 'Tread Geometry', 'Prototyping'],
-    roles: ['Intern'],
+    roles: ['Engineering Intern'],
     card: {
       cover: TbMoon,
       coverCode: 'NASA HUNCH · Prototype',
-      description: 'Front and rear wheels for an electric lunar scooter, with tread geometry tuned for astronaut travel near 1 m/s, far faster than typical rover wheels.',
+      description: 'Lunar scooter wheels and tread geometry for ~1 m/s astronaut transit, trading contact area against regolith traction and mass.',
     },
     stats: [
       { value: '~1 m/s', label: 'Design Travel Speed' },
@@ -584,7 +608,85 @@ export const projects = {
     },
     contributions: [
       'Developed front and rear wheels for an electric lunar scooter, tuned for astronaut travel speeds near 1 m/s, far faster than typical rover wheels.',
-      'Designed tread geometry suited to higher-speed lunar surface travel.',
+      'Designed tread geometry for higher-speed lunar surface travel, trading contact area against regolith traction and mass.',
+    ],
+  },
+
+  // ─── Team Projects ─────────────────────────────────────────────────────────
+  'texas-moto-racing': {
+    ...team,
+    tag: 'MotoStudent International Competition · Sep 2026 – Present',
+    title: 'Texas Moto Racing',
+    inProgress: true,
+    heroCover: TbMotorbike,
+    heroCoverCode: 'TMR · MotoStudent eFuel',
+    software: ['Fusion 360', 'Vehicle Dynamics', 'Chassis & Suspension Geometry', 'MotoStudent Rules (MS2627)', 'TIG-Welded 4130 Steel', 'Composite Bodywork'],
+    roles: ['Founder', 'Vehicle Dynamics Lead'],
+    card: {
+      cover: TbMotorbike,
+      coverCode: 'TMR · MotoStudent',
+      description: "Founded UT Austin's first motorcycle engineering team for the 2026–27 MotoStudent eFuel class, and lead its Vehicle Dynamics subteam.",
+    },
+    stats: [
+      { value: '1300 mm', label: 'Wheelbase' },
+      { value: '23°', label: 'Rake' },
+      { value: '43 mm', label: 'USD Forks' },
+      { value: '10', label: 'Member Roster' },
+    ],
+    challenge: {
+      title: 'The Team',
+      text: 'Texas Moto Racing is the first motorcycle engineering team at The University of Texas at Austin, founded to compete in the 2026–27 MotoStudent International Competition eFuel class. Building it meant standing up the organization and designing a prototype motorcycle at the same time.',
+    },
+    specs: [
+      {
+        title: 'Prototype',
+        specs: [
+          ['Benchmark', 'Moto3'],
+          ['Rear Suspension', 'Linkage rear shock'],
+          ['Frame', 'TIG-welded 4130 steel'],
+          ['Bodywork', 'Composite'],
+          ['CAD', 'Fusion 360'],
+        ],
+      },
+      {
+        title: 'Competition',
+        specs: [
+          ['Event', 'MotoStudent International'],
+          ['Class', 'eFuel'],
+          ['Season', '2026–27'],
+          ['Rules', 'MS2627'],
+        ],
+      },
+    ],
+    contributions: [
+      'Founded the first motorcycle engineering team at The University of Texas at Austin for the 2026–27 MotoStudent eFuel class.',
+      'Led org registration, recruited a 10-member roster, and pitched faculty advisors and sponsors.',
+      'Leading the Vehicle Dynamics subteam: Moto3-benchmarked 1300 mm wheelbase and 23° rake, 43 mm USD forks, and a linkage rear shock.',
+      'Modeling the prototype in Fusion 360 to MS2627 rules: TIG-welded 4130 steel frame and composite bodywork for in-house builds.',
+    ],
+  },
+
+  'longhorn-baja': {
+    ...team,
+    tag: 'Baja SAE Collegiate Design Series · Oct 2026 – Present',
+    title: 'Longhorn Baja Racing',
+    inProgress: true,
+    heroCover: TbSteeringWheel,
+    heroCoverCode: 'Baja SAE · Ergonomics',
+    software: ['Driver-Fit Testing', 'T-Slot Fixturing', 'Brake System Components'],
+    roles: ['Ergonomics Subteam'],
+    card: {
+      cover: TbSteeringWheel,
+      coverCode: 'Baja SAE',
+      description: 'Ergonomics subteam: evaluating a T-slot jig for adjustable driver-fit testing, and researching master cylinders for next season\'s brakes.',
+    },
+    challenge: {
+      title: 'The Subteam',
+      text: "Longhorn Baja Racing builds an off-road car for the Baja SAE Collegiate Design Series. The Ergonomics subteam is responsible for how the driver fits the car: where the seat, steering wheel, and pedal box sit.",
+    },
+    contributions: [
+      'Evaluating a T-slot jig that integrates the seat, steering wheel, and pedal box for adjustable driver-fit testing.',
+      "Researching master cylinder options with a teammate for next season's brake system.",
     ],
   },
 }
@@ -592,7 +694,7 @@ export const projects = {
 // Card-only entry (no detail page)
 export const okrabot = {
   title: 'Okrabot',
-  tag: 'Guinn Partners · 2026 – Present',
+  tag: 'Guinn Partners · Jan 2026 – Present',
   cover: TbPlant2,
   coverCode: 'Okrabot',
   description: 'Automated okra-harvesting robot: assembled the chassis frame that the robotic picking arm traverses along while harvesting okra.',

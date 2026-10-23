@@ -3,7 +3,7 @@ import img from '../img'
 
 // `size: 'contain'` keeps transparent renders whole instead of cropping them to fill the hero
 const slides = [
-  { src: '/images/fig-02.png', label: 'Active Airbrakes Prototype', sub: 'Longhorn Rocketry · IREC Competition Rocket' },
+  { src: '/images/fig-02.png', label: 'Active Airbrakes Prototype', sub: 'Longhorn Rocketry · IREC / Spaceport America Cup' },
   { src: '/images/rocket-v9.webp', size: 'contain', label: 'Rocket Version 9', sub: 'Active-Control Airframe · Fusion 360' },
   { src: '/images/tvc-pcb-iso.webp', size: 'contain', position: 'right 40%', label: 'LRA TVC V5 Flight Computer', sub: 'Avionics · KiCad · 4-Layer' },
   { src: '/images/fig-06.png', label: 'Atomic Strain Analysis', sub: 'UT Austin ECE · Additive Manufacturing Research' },

@@ -5,26 +5,44 @@ import HeroCarousel from '../components/HeroCarousel'
 import img from '../img'
 
 const companies = [
-  { name: 'Guinn Partners', role: 'Engineering Intern', initials: 'GP' },
-  { name: 'Ascendant AI', role: 'Engineering Intern', initials: 'AAI' },
-  { name: 'UT Austin ECE', role: 'Researcher', initials: 'ECE' },
-  { name: 'Longhorn Rocketry', role: 'Member', initials: 'LRA' },
+  { name: 'Guinn Partners', role: 'ME Intern', initials: 'GP' },
+  { name: 'Ascendant AI', role: 'ME Intern', initials: 'AAI' },
+  { name: 'Texas Moto Racing', role: 'Founder', initials: 'TMR' },
+  { name: 'Longhorn Rocketry', role: 'Subsystem Lead', initials: 'LRA' },
+  { name: 'Longhorn Baja', role: 'Ergonomics', initials: 'LBR' },
+  { name: 'Chandra Dept. of ECE', role: 'Researcher', initials: 'ECE' },
   { name: 'NASA HUNCH', role: 'Intern', initials: 'HUNCH' },
 ]
 
 const timelineEntries = [
   {
-    date: '2026 – Present',
+    date: 'Oct 2026 – Present',
+    org: 'Longhorn Baja Racing',
+    role: 'Ergonomics Subteam · Driver-Fit Jig · Brake Master Cylinder Research',
+    tag: 'Student Org',
+    to: '/team/longhorn-baja',
+    initials: 'LBR',
+  },
+  {
+    date: 'Sep 2026 – Present',
+    org: 'Texas Moto Racing',
+    role: 'Founder · Vehicle Dynamics Lead · MotoStudent International Competition',
+    tag: 'Founder',
+    to: '/team/texas-moto-racing',
+    initials: 'TMR',
+  },
+  {
+    date: 'Jan 2026 – Present',
     org: 'Guinn Partners · IMPRESS',
-    role: 'Engineering · Mars Penetrator Drop Testing · NASA TechLeap Prize 2026 Winner',
+    role: 'Mechanical Engineering Intern · Mars Penetrator Drop Testing · NASA TechLeap Prize 2026 Winner',
     tag: 'Industry',
     to: '/industry/impress',
     initials: 'GP',
   },
   {
-    date: '2026 – Present',
+    date: 'Jan 2026 – Present',
     org: 'Ascendant AI · WaveDrone',
-    role: 'Engineering Intern · Autonomous Maritime Vessel Platform',
+    role: 'Mechanical Engineering Intern · Autonomous Maritime Vessel, 5 Subassemblies',
     tag: 'Industry',
     to: '/industry/wavedrone',
     initials: 'AAI',
@@ -32,63 +50,63 @@ const timelineEntries = [
   {
     date: '2026',
     org: 'DZYNE Technologies UAV',
-    role: 'Engineering Intern · Assembly Fixturing, DfM & LRIP Support',
+    role: 'Mechanical Engineering Intern · Assembly Fixturing, 100+ Released Drawings',
     tag: 'Industry',
     to: '/industry/dzyne-uav',
     initials: 'AAI',
   },
   {
-    date: '2026 – Present',
+    date: 'Jan 2026 – Present',
     org: 'MoonTower Fleet Intelligence',
-    role: 'Engineering Intern · DAQ Qualification Test Stand',
+    role: 'Mechanical Engineering Intern · 50-Channel DAQ Qualification Stand',
     tag: 'Industry',
     to: '/industry/moontower-daq',
     initials: 'AAI',
   },
   {
-    date: '2026 – Present',
+    date: 'Jan 2026 – Present',
     org: '526 Solutions · Modular FPV UAS',
-    role: 'Engineering · Frame DfM, CNC Carbon Fiber & Payload Mounts',
+    role: 'Mechanical Engineering Intern · Frame DfM, CNC Carbon Fiber & Payload Mounts',
     tag: 'Industry',
     to: '/industry/modular-fpv-uas',
     initials: 'AAI',
   },
   {
-    date: '2026 – Present',
+    date: 'Jan 2026 – Present',
     org: 'Guinn Partners · Medical & Robotics',
-    role: 'Engineering · Endotracheal Tube Design · Okrabot Harvester Chassis',
+    role: 'Mechanical Engineering Intern · Endotracheal Tube (30 Variants) · Okrabot Chassis',
     tag: 'Industry',
     to: '/industry/endotracheal-tube',
     initials: 'GP',
   },
   {
-    date: '2024 – Present',
+    date: 'Aug 2024 – Present',
     org: 'Longhorn Rocketry Association',
-    role: 'Airbrakes · Fin-Tab Roll Control · Thrust Vector Control · Avionics',
+    role: 'IREC / Spaceport America Cup · Airbrakes · Fin Tabs (Subsystem Lead) · TVC · Avionics',
     tag: 'Student Org',
     to: '/rocketry',
     initials: 'LRA',
   },
   {
-    date: '2024 – Present',
-    org: 'UT Austin ECE',
+    date: 'Aug 2024 – Aug 2025',
+    org: 'Chandra Dept. of ECE',
     role: 'Undergraduate Research Assistant · Additive Manufacturing (Prof. Michael Becker)',
     tag: 'Research',
     to: '/research/atomic-strain',
     initials: 'ECE',
   },
   {
-    date: '2023 – 2024',
+    date: '2023 – Apr 2024',
     org: 'NASA HUNCH',
-    role: 'Intern · 3D-Printed Medical Devices',
+    role: 'Engineering Intern · Closed-Loop Recycling of 3D-Printed Medical Instruments',
     tag: 'NASA HUNCH',
     to: '/research/hunch-medical-devices',
     initials: 'HUNCH',
   },
   {
-    date: '2022 – 2023',
+    date: 'Aug 2022 – 2023',
     org: 'NASA HUNCH',
-    role: 'Intern · Lunar Scooter Wheels',
+    role: 'Engineering Intern · Lunar Scooter Wheels & Tread Geometry',
     tag: 'NASA HUNCH',
     to: '/research/hunch-lunar-wheels',
     initials: 'HUNCH',
@@ -152,14 +170,17 @@ export default function Home() {
               </h1>
               <div className="hero-bio-chips">
                 <span className="hero-bio-chip">ME + Business · UT Austin · May 2028</span>
-                <span className="hero-bio-chip">Engineering Intern · Guinn Partners</span>
+                <span className="hero-bio-chip">Mechanical Engineering Intern · Guinn Partners</span>
+                <span className="hero-bio-chip">Founder · Texas Moto Racing</span>
+                <span className="hero-bio-chip">Terry Scholar · Top 0.08% of 72,000+</span>
                 <span className="hero-bio-chip">Seeking aerospace structures, actuation &amp; hardware test roles</span>
               </div>
               <p className="hero-bio-text">
                 I'm Mario Hernandez Jr., a mechanical engineering student at UT Austin building flight
                 hardware, actuation systems, and manufacturing drawings for real vehicles, on the ground and
                 off it: rocket airbrakes, fin-tab roll control, thrust vector control, Mars penetrator drop
-                tests, UAV fixturing and autonomous maritime platforms.
+                tests, UAV fixturing and autonomous maritime platforms. I also founded Texas Moto Racing,
+                UT Austin's first motorcycle engineering team.
               </p>
               <div className="hero-bio-actions">
                 <a href="mailto:mariothdz@utexas.edu" className="btn btn-primary">
@@ -190,10 +211,10 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={5} className="hero-cta-personal">
-              <Link to="/research" className="card-link" style={{ height: '100%', display: 'block' }}>
+              <Link to="/team" className="card-link" style={{ height: '100%', display: 'block' }}>
                 <div className="cta-card card" style={{ height: '100%' }}>
                   <div className="cta-card-number">03</div>
-                  <div className="cta-card-title">Research &amp;<br />NASA HUNCH</div>
+                  <div className="cta-card-title">Team<br />Projects</div>
                 </div>
               </Link>
             </ScrollReveal>

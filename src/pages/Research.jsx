@@ -34,7 +34,7 @@ export default function Research() {
         <div className="container">
           <Section
             title="University Research"
-            intro="Additive manufacturing research at UT Austin ECE under Prof. Michael Becker: atomic-scale strain analysis of Al₂O₃ particles from molecular-dynamics simulation."
+            intro="Additive manufacturing research in UT Austin's Chandra Department of ECE under Prof. Michael Becker: atomic-scale strain analysis of Al₂O₃ particles across 150+ molecular-dynamics runs."
             items={university}
           />
         </div>

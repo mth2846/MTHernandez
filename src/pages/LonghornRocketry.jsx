@@ -9,7 +9,7 @@ import img from '../img'
 const toc = [
   { id: 'overview', label: 'Overview' },
   { id: 'approach', label: 'Engineering Approach' },
-  { id: 'irec', label: 'IREC Competition Rocket' },
+  { id: 'irec', label: 'IREC / Spaceport America Cup' },
   { id: 'active-control', label: 'Active Control & Avionics' },
   { id: 'propulsion', label: 'Propulsion Testing' },
   { id: 'gallery', label: 'Gallery' },
@@ -25,7 +25,7 @@ const teamStats = [
 const approach = [
   { title: 'Trade Study First', text: 'Mechanisms are picked on paper before CAD: a cam-slot airbrake for simplicity, low mass, and flight heritage, and fin tabs over a linkage for fewer failure points and easier control integration.' },
   { title: 'Simulate, Then Prove It', text: 'CFD sets the loads, FEA checks the structure against them, and bench tests close the loop, like measuring servo torque against the stated max before trusting it in flight.' },
-  { title: 'Fail Safe', text: 'The TVC gimbal is designed so the rocket cannot aim toward the ground after a mechanical failure, and the flight computer needs an external arming switch before any pyro event.' },
+  { title: 'Fail Safe', text: 'TVC fail-safes keep thrust from vectoring toward the ground if an actuator or linkage fails, the flight computer needs an external arming switch before any pyro event, and the V7 board adds a safety co-processor.' },
   { title: 'Fit the 3 in Envelope', text: 'Everything packages into a 3 in airframe: fin tabs with embedded slim servos, and a flight computer compacted from 65 × 80 mm to 50 × 76 mm to mount lengthwise on its sled.' },
 ]
 
@@ -81,7 +81,7 @@ export default function LonghornRocketry() {
         <div className="cinematic-header-overlay" />
         <div className="container cinematic-header-content">
           <div className="cinematic-header-meta">
-            <span className="cinematic-header-tag">UT Austin · IREC &amp; Advanced Research</span>
+            <span className="cinematic-header-tag">UT Austin · IREC / Spaceport America Cup Team</span>
           </div>
           <h1 className="cinematic-header-title">Longhorn Rocketry Association</h1>
           <div className="pill-group cinematic-header-pills">
@@ -95,10 +95,10 @@ export default function LonghornRocketry() {
         <div className="container">
           <ScrollReveal>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 40, maxWidth: 700, fontSize: '0.95rem', lineHeight: 1.75 }}>
-              With the Longhorn Rocketry Association I work across vehicle design, avionics, and advanced
-              research: active airbrakes and fin-tab roll control for the IREC competition rocket, a 2-axis
-              thrust vector control gimbal, the TVC V5 flight computer, the active-control Rocket Version 9
-              airframe, and a static-fire motor test stand.
+              On the Longhorn Rocketry Association's IREC / Spaceport America Cup team I work across vehicle
+              design, avionics, and advanced research: active airbrakes and fin-tab roll control (as subsystem
+              lead), a 2-axis thrust vector control gimbal, the TVC flight computers, the active-control Rocket
+              Version 9 airframe, and a static-fire motor test stand.
             </p>
           </ScrollReveal>
 
@@ -128,8 +128,8 @@ export default function LonghornRocketry() {
 
       <Group
         id="irec"
-        title="IREC Competition Rocket"
-        intro="Active control for the team's IREC entries: airbrakes that hold a 10,000 ft target apogee, and actuating fin tabs for roll control."
+        title="IREC / Spaceport America Cup"
+        intro="Active control for the team's IREC / Spaceport America Cup entries: airbrakes that hold a 10,000 ft target apogee, and actuating fin tabs for roll control."
         items={irec}
       />
 

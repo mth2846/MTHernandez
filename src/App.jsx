@@ -7,6 +7,7 @@ import PageTransition from './components/PageTransition'
 import Home from './pages/Home'
 const IndustryExperience = lazy(() => import('./pages/IndustryExperience'))
 const LonghornRocketry = lazy(() => import('./pages/LonghornRocketry'))
+const TeamProjects = lazy(() => import('./pages/TeamProjects'))
 const Research = lazy(() => import('./pages/Research'))
 const Skills = lazy(() => import('./pages/Skills'))
 const ProjectPage = lazy(() => import('./pages/ProjectPage'))
@@ -51,6 +52,9 @@ function AnimatedRoutes() {
         <Route path="/rocketry/fin-tabs"              element={<PT><ProjectPage slug="fin-tabs" /></PT>} />
         <Route path="/rocketry/thrust-vector-control" element={<PT><ProjectPage slug="thrust-vector-control" /></PT>} />
         <Route path="/rocketry/motor-test-stand"      element={<PT><ProjectPage slug="motor-test-stand" /></PT>} />
+        <Route path="/team"                           element={<PT><TeamProjects /></PT>} />
+        <Route path="/team/texas-moto-racing"         element={<PT><ProjectPage slug="texas-moto-racing" /></PT>} />
+        <Route path="/team/longhorn-baja"             element={<PT><ProjectPage slug="longhorn-baja" /></PT>} />
         <Route path="/research"                       element={<PT><Research /></PT>} />
         <Route path="/research/atomic-strain"         element={<PT><ProjectPage slug="atomic-strain" /></PT>} />
         <Route path="/research/hunch-medical-devices" element={<PT><ProjectPage slug="hunch-medical-devices" /></PT>} />

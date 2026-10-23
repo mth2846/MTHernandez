@@ -6,8 +6,9 @@ export default function Navbar() {
 
   const links = [
     { to: '/', label: 'Home' },
-    { to: '/industry', label: 'Industry Experience' },
+    { to: '/industry', label: 'Industry' },
     { to: '/rocketry', label: 'Longhorn Rocketry' },
+    { to: '/team', label: 'Team Projects' },
     { to: '/research', label: 'Research' },
     { to: '/skills', label: 'Skills' },
   ]
