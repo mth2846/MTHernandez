@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -45,6 +46,21 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      # While Settings -> Pages -> Source is still "Deploy from a branch", GitHub also publishes the raw
+      # source (a blank page) on every push. Wait for that run so this deploy always lands last.
+      # Once Source is "GitHub Actions" that run no longer exists and this step finishes immediately.
+      - name: Wait for branch-based Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in $(seq 1 36); do
+            pending=$(gh api "repos/${{ github.repository }}/actions/runs?head_sha=${{ github.sha }}" \
+              --jq '[.workflow_runs[] | select(.name == "pages build and deployment" and .status != "completed")] | length')
+            [ "$pending" = "0" ] && exit 0
+            echo "Branch-based Pages build still running, waiting..."
+            sleep 10
+          done
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
