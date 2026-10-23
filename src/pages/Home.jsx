@@ -10,6 +10,8 @@ import img from '../img'
 // tileBg: logos that keep their own background fill the timeline tile with it.
 const logos = {
   GP: { src: img('/images/logos/guinn-partners.png'), height: 36, stripFilter: 'brightness(0) invert(1)' },
+  AAI: { src: img('/images/logos/ascendant-ai.png'), height: 36 },
+  TMR: { src: img('/images/logos/texas-moto-racing.png') },
   LRA: { src: img('/images/logos/longhorn-rocketry.png'), height: 36 },
   LBR: { src: img('/images/logos/longhorn-baja.png'), radius: 4, tileBg: '#000' },
   HUNCH: { src: img('/images/logos/nasa-hunch.png'), height: 36 },
