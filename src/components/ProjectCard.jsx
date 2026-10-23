@@ -1,0 +1,46 @@
+import { Link } from 'react-router-dom'
+import ScrollReveal from './ScrollReveal'
+import InProgressBadge from './InProgressBadge'
+import ComingSoonBadge from './ComingSoonBadge'
+import RestrictedBadge from './RestrictedBadge'
+import Cover from './Cover'
+import AwardBadge from './AwardBadge'
+
+export default function ProjectCard({ image, cover, coverCode, tag, title, description, to, delay = 0, award, inProgress, comingSoon, restricted, restrictedLabel, imageStyle }) {
+  const inner = (
+    <div className="card project-card" style={{ cursor: to ? 'pointer' : 'default' }}>
+      <div className="project-card-img-wrap">
+        {image
+          ? <img src={image} alt={title} className="project-card-img" style={imageStyle} loading="lazy" />
+          : <Cover icon={cover} code={coverCode} className="project-card-img" />}
+      </div>
+      <div className="project-card-body">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          {tag && <div className="project-card-tag">{tag}</div>}
+          {award && <AwardBadge label={award} />}
+          {inProgress && <InProgressBadge />}
+          {comingSoon && <ComingSoonBadge />}
+          {restricted && <RestrictedBadge label={restrictedLabel} />}
+        </div>
+        <h3 className="project-card-title">{title}</h3>
+        {description && <p className="project-card-desc">{description}</p>}
+        {restricted && !to && (
+          <div className="project-card-footer">
+            <span className="project-card-restricted-note">Details withheld</span>
+          </div>
+        )}
+        {to && (
+          <div className="project-card-footer">
+            <span className="project-card-link">View Project →</span>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+
+  return (
+    <ScrollReveal delay={delay}>
+      {to ? <Link to={to} style={{ display: 'block', height: '100%', textDecoration: 'none', color: 'inherit' }}>{inner}</Link> : inner}
+    </ScrollReveal>
+  )
+}

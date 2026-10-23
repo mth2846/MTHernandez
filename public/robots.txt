@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mth2846.github.io/MTHernandez/sitemap.xml
