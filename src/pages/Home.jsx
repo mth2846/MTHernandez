@@ -6,18 +6,17 @@ import img from '../img'
 
 // Org logos by initials; orgs without one fall back to an initials tile.
 // height: square-ish badges read small at the strip's wordmark height.
-// stripFilter: dark line art is rendered white on the dark strip cards.
-// tileBg: logos that keep their own background fill the timeline tile with it.
+// darkFilter: dark logos are rendered white on the dark strip cards and black timeline tiles.
 const logos = {
-  GP: { src: img('/images/logos/guinn-partners.png'), height: 36, stripFilter: 'brightness(0) invert(1)' },
+  GP: { src: img('/images/logos/guinn-partners.png'), height: 36, darkFilter: 'brightness(0) invert(1)' },
   AAI: { src: img('/images/logos/ascendant-ai.png'), height: 36 },
   TMR: { src: img('/images/logos/texas-moto-racing.png') },
   LRA: { src: img('/images/logos/longhorn-rocketry.png'), height: 36 },
-  LBR: { src: img('/images/logos/longhorn-baja.png'), radius: 4, tileBg: '#000' },
+  LBR: { src: img('/images/logos/longhorn-baja.png'), radius: 4 },
   HUNCH: { src: img('/images/logos/nasa-hunch.png'), height: 36 },
   ECE: { src: img('/images/logos/chandra-ece.jpg'), height: 36, radius: 4 },
-  DZYNE: { src: img('/images/logos/dzyne.png') },
-  526: { src: img('/images/logos/526-solutions.png') },
+  DZYNE: { src: img('/images/logos/dzyne.png'), darkFilter: 'brightness(0) invert(1)' },
+  526: { src: img('/images/logos/526-solutions.png'), darkFilter: 'brightness(0) invert(1)' },
 }
 
 const companies = [
@@ -254,7 +253,7 @@ export default function Home() {
                         className="company-logo-img"
                         style={{
                           height: logos[c.initials].height,
-                          filter: logos[c.initials].stripFilter,
+                          filter: logos[c.initials].darkFilter,
                           borderRadius: logos[c.initials].radius,
                         }}
                         loading="lazy"
@@ -293,9 +292,9 @@ export default function Home() {
                     {entry.to && <span className="zz-arrow">→</span>}
                   </div>
                   <div className="zz-card-main">
-                    <div className="zz-logo" style={logos[entry.initials]?.tileBg ? { background: logos[entry.initials].tileBg } : undefined}>
+                    <div className="zz-logo">
                       {logos[entry.initials]
-                        ? <img src={logos[entry.initials].src} alt={`${entry.org} logo`} loading="lazy" />
+                        ? <img src={logos[entry.initials].src} alt={`${entry.org} logo`} style={{ filter: logos[entry.initials].darkFilter }} loading="lazy" />
                         : <span className="zz-logo-initials">{entry.initials}</span>}
                     </div>
                     <div className="zz-card-text">
