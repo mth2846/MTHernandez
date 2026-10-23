@@ -13,6 +13,8 @@ const logos = {
   LRA: { src: img('/images/logos/longhorn-rocketry.png'), height: 36 },
   LBR: { src: img('/images/logos/longhorn-baja.png'), radius: 4, tileBg: '#000' },
   HUNCH: { src: img('/images/logos/nasa-hunch.png'), height: 36 },
+  DZYNE: { src: img('/images/logos/dzyne.png') },
+  526: { src: img('/images/logos/526-solutions.png') },
 }
 
 const companies = [
@@ -64,7 +66,7 @@ const timelineEntries = [
     role: 'Mechanical Engineering Intern · Assembly Fixturing, 100+ Released Drawings',
     tag: 'Industry',
     to: '/industry/dzyne-uav',
-    initials: 'AAI',
+    initials: 'DZYNE',
   },
   {
     date: 'Jan 2026 – Present',
@@ -80,7 +82,7 @@ const timelineEntries = [
     role: 'Mechanical Engineering Intern · Frame DfM, CNC Carbon Fiber & Payload Mounts',
     tag: 'Industry',
     to: '/industry/modular-fpv-uas',
-    initials: 'AAI',
+    initials: '526',
   },
   {
     date: 'Jan 2026 – Present',
