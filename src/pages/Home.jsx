@@ -4,21 +4,25 @@ import ScrollReveal from '../components/ScrollReveal'
 import HeroCarousel from '../components/HeroCarousel'
 import img from '../img'
 
-// Org logos by initials; orgs without one fall back to an initials tile
+// Org logos by initials; orgs without one fall back to an initials tile.
+// height: square-ish badges read small at the strip's wordmark height.
+// stripFilter: dark line art is rendered white on the dark strip cards.
+// tileBg: logos that keep their own background fill the timeline tile with it.
 const logos = {
-  LRA: img('/images/logos/longhorn-rocketry.png'),
-  LBR: img('/images/logos/longhorn-baja.png'),
-  HUNCH: img('/images/logos/nasa-hunch.png'),
+  GP: { src: img('/images/logos/guinn-partners.png'), height: 36, stripFilter: 'brightness(0) invert(1)' },
+  LRA: { src: img('/images/logos/longhorn-rocketry.png'), height: 36 },
+  LBR: { src: img('/images/logos/longhorn-baja.png'), radius: 4, tileBg: '#000' },
+  HUNCH: { src: img('/images/logos/nasa-hunch.png'), height: 36 },
 }
 
 const companies = [
   { name: 'Guinn Partners', role: 'ME Intern', initials: 'GP' },
   { name: 'Ascendant AI', role: 'ME Intern', initials: 'AAI' },
   { name: 'Texas Moto Racing', role: 'Founder', initials: 'TMR' },
-  { name: 'Longhorn Rocketry', role: 'Subsystem Lead', initials: 'LRA', logoHeight: 36 },
+  { name: 'Longhorn Rocketry', role: 'Subsystem Lead', initials: 'LRA' },
   { name: 'Longhorn Baja', role: 'Ergonomics', initials: 'LBR' },
   { name: 'Chandra Dept. of ECE', role: 'Researcher', initials: 'ECE' },
-  { name: 'NASA HUNCH', role: 'Intern', initials: 'HUNCH', logoHeight: 36 },
+  { name: 'NASA HUNCH', role: 'Intern', initials: 'HUNCH' },
 ]
 
 const timelineEntries = [
@@ -240,11 +244,14 @@ export default function Home() {
                   <div className="company-logo-wrap">
                     {logos[c.initials] ? (
                       <img
-                        src={logos[c.initials]}
+                        src={logos[c.initials].src}
                         alt={c.name}
                         className="company-logo-img"
-                        // Square-ish badges read small at the strip's wordmark height
-                        style={c.logoHeight ? { height: c.logoHeight } : undefined}
+                        style={{
+                          height: logos[c.initials].height,
+                          filter: logos[c.initials].stripFilter,
+                          borderRadius: logos[c.initials].radius,
+                        }}
                         loading="lazy"
                       />
                     ) : (
@@ -281,9 +288,9 @@ export default function Home() {
                     {entry.to && <span className="zz-arrow">→</span>}
                   </div>
                   <div className="zz-card-main">
-                    <div className="zz-logo">
+                    <div className="zz-logo" style={logos[entry.initials]?.tileBg ? { background: logos[entry.initials].tileBg } : undefined}>
                       {logos[entry.initials]
-                        ? <img src={logos[entry.initials]} alt={`${entry.org} logo`} loading="lazy" />
+                        ? <img src={logos[entry.initials].src} alt={`${entry.org} logo`} loading="lazy" />
                         : <span className="zz-logo-initials">{entry.initials}</span>}
                     </div>
                     <div className="zz-card-text">
