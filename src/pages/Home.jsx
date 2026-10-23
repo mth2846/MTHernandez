@@ -4,14 +4,21 @@ import ScrollReveal from '../components/ScrollReveal'
 import HeroCarousel from '../components/HeroCarousel'
 import img from '../img'
 
+// Org logos by initials; orgs without one fall back to an initials tile
+const logos = {
+  LRA: img('/images/logos/longhorn-rocketry.png'),
+  LBR: img('/images/logos/longhorn-baja.png'),
+  HUNCH: img('/images/logos/nasa-hunch.png'),
+}
+
 const companies = [
   { name: 'Guinn Partners', role: 'ME Intern', initials: 'GP' },
   { name: 'Ascendant AI', role: 'ME Intern', initials: 'AAI' },
   { name: 'Texas Moto Racing', role: 'Founder', initials: 'TMR' },
-  { name: 'Longhorn Rocketry', role: 'Subsystem Lead', initials: 'LRA' },
+  { name: 'Longhorn Rocketry', role: 'Subsystem Lead', initials: 'LRA', logoHeight: 36 },
   { name: 'Longhorn Baja', role: 'Ergonomics', initials: 'LBR' },
   { name: 'Chandra Dept. of ECE', role: 'Researcher', initials: 'ECE' },
-  { name: 'NASA HUNCH', role: 'Intern', initials: 'HUNCH' },
+  { name: 'NASA HUNCH', role: 'Intern', initials: 'HUNCH', logoHeight: 36 },
 ]
 
 const timelineEntries = [
@@ -231,7 +238,18 @@ export default function Home() {
               {companies.map(c => (
                 <div key={c.name} className="company-badge">
                   <div className="company-logo-wrap">
-                    <div className="company-logo-initials">{c.initials}</div>
+                    {logos[c.initials] ? (
+                      <img
+                        src={logos[c.initials]}
+                        alt={c.name}
+                        className="company-logo-img"
+                        // Square-ish badges read small at the strip's wordmark height
+                        style={c.logoHeight ? { height: c.logoHeight } : undefined}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="company-logo-initials">{c.initials}</div>
+                    )}
                   </div>
                   <div className="company-badge-name">{c.name}</div>
                   <div className="company-badge-role">{c.role}</div>
@@ -264,7 +282,9 @@ export default function Home() {
                   </div>
                   <div className="zz-card-main">
                     <div className="zz-logo">
-                      <span className="zz-logo-initials">{entry.initials}</span>
+                      {logos[entry.initials]
+                        ? <img src={logos[entry.initials]} alt={`${entry.org} logo`} loading="lazy" />
+                        : <span className="zz-logo-initials">{entry.initials}</span>}
                     </div>
                     <div className="zz-card-text">
                       <div className="zz-date">{entry.date}</div>
