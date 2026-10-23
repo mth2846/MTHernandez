@@ -15,6 +15,7 @@ const logos = {
   LRA: { src: img('/images/logos/longhorn-rocketry.png'), height: 36 },
   LBR: { src: img('/images/logos/longhorn-baja.png'), radius: 4, tileBg: '#000' },
   HUNCH: { src: img('/images/logos/nasa-hunch.png'), height: 36 },
+  ECE: { src: img('/images/logos/chandra-ece.jpg'), height: 36, radius: 4 },
   DZYNE: { src: img('/images/logos/dzyne.png') },
   526: { src: img('/images/logos/526-solutions.png') },
 }
